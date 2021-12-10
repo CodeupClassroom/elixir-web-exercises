@@ -1,3 +1,22 @@
+================================= Elixir WEEK 2 AGENDA
+
+    Goals...
+
+    - Continue learning about JS Functions
+    - Learn about JS Conditionals, Testing, and Loops
+    - Get acquainted with Codeup's Placement team
+
+================================= 12/11/21
+
+    Morning...
+
+    - Continue learning about Functions
+    - Begin learning about Conditionals
+
+    Afternoon...
+
+    - Heavy in Conditionals
+
 ================================= Elixir WEEK 1 AGENDA
 
   Goals...
@@ -8,28 +27,50 @@
     - become familiar with IntelliJ
     - JavaScript fun!
 
-  Tentative Schedule...
+================================= 12/10/21
 
-      Thursday - Welcome Day / Set Up
-      Friday - Setup / Intro to Mac, Terminal, Git / Intro to JavaScript
+    This morning...
 
+    - Wrapping up Intro to JS
+    - JS w/ HTML
+    - Intro to Professional Development
+
+    This afternoon...
+
+    - Functions!
+
+    Announcements...
+
+    - Be sure to fill our your weekly surveys!
+
+================================= 12/09/21
+
+    All day...
+
+    - Introduction to JavaScript
+
+================================= 12/08/21
+
+    This morning...
+
+    - More Git/Terminal exercise
+    - Any last housekeeping/setups
+    - Intellij setup
+
+    This afternoon...
+
+    - Introduction to JavaScript
 
 ================================= 12/07/21
 
     This morning...
 
-    - Run/Troubleshoot Set-Up Scripts
-        - Split into M1 & Intel groups
-        - Run Scripts
-        - Regroup, break (staff formulate a plan)
-        - Tackle the challenge
+    - Developing and Embracing a Growth Mindset
+        - See also, Carol Dweck
 
-    - async While Tackling the Challenge
-        - Developing and Embracing a Growth Mindset
-            - See also, Carol Dweck
-        - Mac / Terminal / Git / Intellij Exercises
+    - Mac / Terminal / Git / Intellij Exercises
 
-    - Clone Down sirius-web-exercises
+    - Clone Down elixir-web-exercises
         -Read through the syllabus
 
     - create repo 'codeup-web-exercises'
