@@ -1,8 +1,8 @@
 "use strict";
+(function () {
+    console.log("Hello from external script!")
 
-console.log("Hello from external script!")
-
-let myAge = 27
+    let myAge = 27
 
 // alert("Check out this alert")
 
@@ -19,8 +19,7 @@ let myAge = 27
 // }
 
 
-let userInput = prompt('Please type a number to add two to:');
-console.log("Your number plus 2 is: " + (parseInt(userInput) + 2));
-
-
+    let userInput = prompt('Please type a number to add two to:');
+    console.log("Your number plus 2 is: " + (parseInt(userInput) + 2));
+})();
 
