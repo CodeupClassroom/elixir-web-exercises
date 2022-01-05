@@ -50,23 +50,3 @@ guitarHeroes.forEach(function (guitarHero) {
 numbers.forEach(function (num, index) {
     console.log(`${num} is at the index of ${index}`)
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
