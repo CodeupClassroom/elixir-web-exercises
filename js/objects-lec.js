@@ -69,6 +69,8 @@ cars[0] = {};
 cars[0].make = "Ford";
 cars[0].model = "Taurus";
 cars[0].year = 2000;
+cars[0].currentSpeed = 0;
+cars[0].maxSpeed = 100;
 cars[0].tires = [
     {
         location : "right-front",
@@ -85,7 +87,8 @@ cars[0].tires = [
 // create second car in the array as a toyota tundra
 cars[1] = {
     make : "Toyota",
-    model : "Tundra"
+    model : "Tundra",
+    currentSpeed : 0
 }
 
 // console.log(cars);
@@ -94,4 +97,38 @@ cars[1] = {
 // printCar(aCar);
 // printCar(cars[1]);
 
+cars[0].honkHorn = function() {
+    console.log("Honk honk");
+};
+// cars[1].honkHorn = function() {
+//     console.log("Honk honk");
+// };
+
 printAllCars(cars);
+
+
+// cars[0].honkHorn();
+
+cars[0].accelerate = function() {
+    // increase car's speed by 10
+    if(this.currentSpeed + 10 <= this.maxSpeed) {
+        this.currentSpeed += 10;
+        console.log("Current speed of car is " + this.currentSpeed);
+    } else {
+        console.log("She's breaking apart, captain!");
+    }
+};
+
+cars[1].accelerate = function() {
+    // increase car's speed by 10
+    if(this.currentSpeed + 10 <= this.maxSpeed) {
+        this.currentSpeed += 10;
+        console.log("Current speed of car is " + this.currentSpeed);
+    } else {
+        console.log("She's breaking apart, captain!");
+    }
+};
+
+for (let i = 0; i < 11; i++) {
+    cars[0].accelerate();
+}
