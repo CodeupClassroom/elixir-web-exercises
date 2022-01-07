@@ -104,7 +104,7 @@ cars[0].honkHorn = function() {
 //     console.log("Honk honk");
 // };
 
-printAllCars(cars);
+// printAllCars(cars);
 
 
 // cars[0].honkHorn();
@@ -129,6 +129,50 @@ cars[1].accelerate = function() {
     }
 };
 
-for (let i = 0; i < 11; i++) {
-    cars[0].accelerate();
+// for (let i = 0; i < 11; i++) {
+//     cars[0].accelerate();
+// }
+
+// MATH part starts here
+
+// Returns a random integer (x) between min and max INCLUSIVELY.
+// min <= x <= max
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+// console.log(getRandomInt(50, 100));
+// 50 <= x <= 100
+// how many #s are between 1 and 10
+// 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 = 10 - 1 = 9
+// 10 - 1 + 1 = 10
+// max - min + 1
+var max = -10;
+var min = -20;
+// console.log(Math.random() * (max - min + 1));
+// returns a # between 0 and 9.9999999
+
+// add the min as an offset
+// console.log(Math.random() * (max - min + 1) + min);
+//         from 0 to .99999
+//            multiply 0 to .9 * scale
+//                     0 to .9... * 11
+//                     0 to 10.99999999
+//                     off
+
+// add Math.floor call to the whole thing to turn it into an int
+// console.log(Math.floor(Math.random() * (max - min + 1) + min));
+
+// console.log(Math.ceil(45.0));
+// Math.pow(2, 8);
+// console.log(Math.PI);
+// round 3.1 -> 3
+// round 3.14159 -> 3.14  100ths
+// 3.14159 * 100 = 314.159 -> 314
+// 314 / 100 = 3.14
+// console.log(Math.round(Math.PI));
+
+// 100th
+// console.log(Math.round(-20.50));
+// let number = 1.98763.toFixed(2);
+// console.log(number)
