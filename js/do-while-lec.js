@@ -84,22 +84,22 @@
 //          Rewrite your getPassword function using a do-while loop
 //          BONUS: Opportunities for re-factor?
 
-function getPassword() {
-
-    // define the actual password and declare the input variable
-    let actualPassword = "MayTh3PhorceBWitU"
-    let input;
-
-    do {
-        
-        // get the input at LEAST once
-        input = prompt("Please enter your password");
-        
-    } while (input !== actualPassword) // check the input before looping again
-
-    console.log("Nailed it!"); // finish
-}
-getPassword();
+// function getPassword() {
+//
+//     // define the actual password and declare the input variable
+//     let actualPassword = "MayTh3PhorceBWitU"
+//     let input;
+//
+//     do {
+//
+//         // get the input at LEAST once
+//         input = prompt("Please enter your password");
+//
+//     } while (input !== actualPassword) // check the input before looping again
+//
+//     console.log("Nailed it!"); // finish
+// }
+// getPassword();
 
 
 // EXAMPLES:
@@ -196,3 +196,106 @@ getPassword();
 // } while(spacesAvailable >= 1);
 //
 // var numOfCars = 2;
+
+
+//
+// An ice cream seller can't go home until she sells all of her cones. First write enough code that generates a random number between 50 and 100 representing the amount of cones to sell before you start your loop. Inside of the loop your code should generate another random number between 1 and 5, simulating the amount of cones being bought by her clients. Use a do-while loop to log to the console the amount of cones sold to each person.
+
+// Use the random number (1-5) to determine how many cones were sold to a person
+
+// Subtract that number from your total inventory of cones (the random num b/t 50-100)
+
+
+function sellSomeIceCream(){
+
+// This is how you get a random number between 50 and 100
+// how many cones are in the inventory
+    let allCones = Math.floor(Math.random() * 50) + 50;
+    let conesSold;
+
+    do {
+
+// how many cones are requested
+        conesSold = Math.floor(Math.random() * 5) + 1;
+        console.log("You asked for " + conesSold + " ice cream cones");
+
+// make sure we have enough cones to actually sell
+        if (conesSold > allCones){
+            console.log(`Cannot sell you ${conesSold} - I only have ${allCones}`);
+            continue;
+        }
+
+// subtract the requested cones from the inventory
+        allCones -= conesSold;
+        console.log("There are " + allCones + " remaining");
+
+    } while (allCones > 0) // stop when we run out of cones
+    console.log(allCones);
+}
+
+sellSomeIceCream();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// This expression will generate a random number between 1 and 5
+
+//The output should be similar to the following:
+
+
+/*
+    5 cones sold...  // if there are enough cones
+Cannot sell you 6 cones I only have 3...  // If there are not enough cones
+Yay! I sold them all! // If there are no more cones*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

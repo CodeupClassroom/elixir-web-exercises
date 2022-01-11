@@ -24,38 +24,28 @@
 
 // PUT PROPERLY...
 
-// for (iterator; condition; increment){
-//      code to execute...
-// }
 
+function petThosDoggos(numberOfDoggos){
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function myFirstForLoop(numOfIterations){
-
-    for (let i = 1; i <= numOfIterations; i++){
-        console.log("Iteration count: "  + i);
+    for (let i = 0; i < numberOfDoggos; i++){
+        console.log(`${i}: **Pats that good boi!**`);
     }
-
 }
 
-myFirstForLoop(5);
+petThosDoggos(3);
+
+console.log("11/10, would pet again!")
+
+
+// function myFirstForLoop(numOfIterations){
+//
+//     for (let i = 1; i <= numOfIterations; i++){
+//         console.log("Iteration count: "  + i);
+//     }
+//
+// }
+//
+// myFirstForLoop(5);
 
 
 // TODO: MINI EXERCISE
