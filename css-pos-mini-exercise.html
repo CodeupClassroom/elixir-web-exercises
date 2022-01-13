@@ -5,7 +5,46 @@
     <title>CSS Fixed Lecture</title>
 
     <style>
-        /* css goes here! */
+        :root {
+            --nav-height: 50px;
+        }
+
+        #my-nav {
+            background-color: orange;
+            width: 100%;
+            height: var(--nav-height);
+            margin: 0px;
+            padding: 0px;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .nav-choice {
+            float: left;
+            padding: 0px 30px;
+            line-height: var(--nav-height);
+        }
+
+        #my-content {
+            clear:right;
+            margin-top:  calc(1.5 * var(--nav-height));
+
+        }
+
+        .left-image {
+            float: left;
+            margin: 10px 10px 5px 5px;
+        }
+
+        .right-image {
+            float: right;
+            margin: 10px 5px 5px 10px;
+        }
+
+        .my-text {
+            text-align: justify;
+        }
 
     </style>
 </head>
