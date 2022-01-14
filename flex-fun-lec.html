@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Flexbox Basics Examples</title>
+        <style>
+            * {
+                box-sizing : border-box;
+            }
+
+            body {
+                margin      : 0;
+                font-family : Helvetica;
+                font-weight : bold;
+            }
+
+            .flex-container {
+                width           : 45%;
+                height: 500px;
+                border          : 3px solid goldenrod;
+                display         : flex;
+                flex-flow: row wrap;
+                justify-content: space-evenly;
+                align-content: space-evenly;
+            }
+
+            .flex-item {
+                background : #BFD45D;
+                border     : 2px solid #F9EFD6;
+                padding    : 1em;
+                height: 200px;
+                width: 200px;
+            }
+
+            .meta-container{
+                display: flex;
+                justify-content: space-evenly;
+            }
+            #inception-container{
+                border: 3px solid dodgerblue;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-evenly;
+                height: 1200px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <main id="inception-container">
+            <section class="meta-container">
+                <div class="flex-container">
+                    <div class="flex-item">
+                        Item 1
+                    </div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                    <div class="flex-item">Item 4</div>
+
+                </div>
+                <div class="flex-container">
+                    <div class="flex-item">
+                        Copy 1
+                    </div>
+                    <div class="flex-item">Copy 2</div>
+                    <div class="flex-item">Copy 3</div>
+                    <div class="flex-item">Copy 4</div>
+
+                </div>
+            </section>
+            <section class="meta-container">
+                <div class="flex-container">
+                    <div class="flex-item">
+                        Item 1
+                    </div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                    <div class="flex-item">Item 4</div>
+
+                </div>
+                <div class="flex-container">
+                    <div class="flex-item">
+                        Copy 1
+                    </div>
+                    <div class="flex-item">Copy 2</div>
+                    <div class="flex-item">Copy 3</div>
+                    <div class="flex-item">Copy 4</div>
+
+                </div>
+            </section>
+        </main>
+
+
+    </body>
+</html>
