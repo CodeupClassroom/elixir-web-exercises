@@ -176,4 +176,27 @@
         console.log('Author: ' + book.author.firstName + ' ' + book.author.lastName)
     }
 
+    function getNthCat(cats, n) {
+        var myN = 1;
+        return cats[n];
+    }
+
+    var myCats = [
+        {
+            catName: "Fifi",
+            age: 5
+        },
+        {
+            catName: "Fluffy",
+            age: 3
+        },
+        {
+            catName: "Abby",
+            age: 7
+        }
+    ];
+
+    // print out the cat at index 1
+    var aCat = getNthCat(myCats, 1);
+    console.log(aCat.catName);
 })();
