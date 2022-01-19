@@ -1,0 +1,116 @@
+
+/*Mobile First Approach*/
+
+body {
+    background-color: cadetblue;
+}
+
+h2  {
+    text-align: center;
+}
+
+.hide-on-small {
+    display: none;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#login {
+    display: flex;
+    justify-content: center;
+}
+
+#login-form label {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#login-form input {
+    line-height: 2em;
+    width: 95%;
+}
+
+/*Tablet View*/
+@media screen and (min-width:768px) {
+
+    body {
+        background-color: blueviolet;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .hide-on-small {
+        display: block;
+    }
+
+    #navbar ul {
+        display: flex;
+        list-style-type: none;
+        justify-content: space-around;
+    }
+
+    #navbar ul>li {
+        background-color: whitesmoke;
+        width: 20%;
+        text-align: center;
+    }
+
+    #image-section img {
+        margin: 1em auto;
+    }
+
+    #login {
+        display: flex;
+        justify-content: center;
+    }
+
+    #login-form {
+        width: 95%;
+    }
+
+    #login-form label {
+        font-weight: bold;
+        font-size: 2em;
+    }
+
+    #login-form input {
+        line-height: 2em;
+    }
+
+
+}
+
+/* Desktop */
+@media screen and (min-width:992px) {
+    body {
+        background-color: chocolate;
+    }
+
+    #login-form input {
+        height: 2em;
+    }
+
+}
+
+/*XL Desktop View */
+@media screen and (min-width:1200px) {
+
+    body {
+        background-color: darkolivegreen;
+    }
+
+    #navbar ul>li {
+        font-size: 2em;
+    }
+
+    #login-form input {
+        height: 3em;
+    }
+
+}
