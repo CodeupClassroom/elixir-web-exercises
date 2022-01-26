@@ -124,6 +124,23 @@
         console.log('---')
     })
 
+    var dogs = [
+        {
+            dogName: "Fido",
+            age: 5
+        },
+        {
+            dogName: "Axel",
+            age: 2
+        }
+    ];
+
+    for (let i = 0; i < dogs.length; i++) {
+        // output the ith dog's info
+        console.log("Dog #" + (i + 1) + " Name: " + dogs[i].dogName + " Age: " + dogs[i].age);
+    }
+
+
     /**
      * TODO:
      * Loop through the books array and output the following information about
