@@ -80,3 +80,41 @@ function elixirGroupOfThreeSlicer(arr) {
 
 }
 elixirGroupOfThreeSlicer(randomOrderGenerator(["Hector", "David", "Brendan", "Brice", "Collin", "Daniel", "Emilio", "Irvin", "Justin", "Jennifer", "Micah", "Patrick", "Rachel", "Raymond", "Scott", "Trevor", "Wesley", "William"]))
+
+
+function reverseString(str) {
+    let result = "";
+    for (let i = str.length-1; i >=0 ; i--) {
+        result += str[i];
+    }
+    return result;
+}
+
+console.log(reverseString("Hello"));
+
+
+function findAverage(grades) {
+    let sum = 0;
+    grades.forEach(function (grade) {
+        sum += grade;
+    });
+    return sum / grades.length;
+}
+
+console.log(findAverage([95, 74, 86, 100]));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
