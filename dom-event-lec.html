@@ -4,19 +4,26 @@
   <meta charset="UTF-8">
   <title>DOM: Events</title>
 
-  <style>
-    #my-div {
-      position: absolute;
-    }
-  </style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
+  <!--  <style>-->
+<!--    .sub-paragraph {-->
+<!--      position: absolute;-->
+<!--      top: 10px;-->
+<!--      left: 10px;-->
+<!--    }-->
+<!--  </style>-->
 </head>
 <body>
 
-<div id="my-div">
-  <p class="sub-paragraph">
-    Some text
-  </p>
+<div id="my-div container">
+  <div class="row">
+    <div class="col-6 offset-6">
+      <p class="sub-paragraph" style="position: absolute; top: 10px; left: 10px;">
+       Some text
+      </p>
+    </div>
+  </div>
 </div>
 
 <br>
@@ -24,7 +31,8 @@
 
 <br>
 <form id="my-form" method="post" action="https://request-inspector.glitch.me/">
-  <input id="my-input" name="my-input" type="text" placeholder="type something">
+  <input id="my-input" name="my-input" class="stay-upper-case" type="text" placeholder="type something">
+  <input id="my-input2" name="my-input2" class="stay-upper-case" type="text" placeholder="type something else">
   <button id="my-submit" type="submit">Submit</button>
 </form>
 
@@ -32,78 +40,73 @@
 (function() {
   "use strict";
 
-  function goUp() {
-    var myDiv = document.querySelector("#my-div");
-    var top = parseInt(myDiv.style.top);
-    top-=10;
-    myDiv.style.top = top + "px";
+  function myMouseHandler () {
+    console.log("Mouse clicked");
   }
 
-  function goDown() {
-    var myDiv = document.querySelector("#my-div");
-    var top = parseInt(myDiv.style.top);
-    top+=10;
-    myDiv.style.top = top + "px";
+  function capitalizeTextInput(event) {
+    event.target.value = event.target.value.toUpperCase();
   }
 
-  function goRight() {
-    var myDiv = document.querySelector("#my-div");
-    var left = parseInt(myDiv.style.left);
-    left+=10;
-    myDiv.style.left = left + "px";
+  function processKeyDown(event) {
+    // grab top and left of sub-paragraph class element
+    var thingToMove = document.querySelector(".sub-paragraph");
+    var top = parseInt(thingToMove.style.top);
+    var left = parseInt(thingToMove.style.left);
+
+    console.log("top: " + top);
+    console.log("left: " + left);
+
+    // console.log("style: " + thingToMove.getAttribute("style"));
+    // console.log(document.styleSheets[0]);
+
+    if(event.code === "ArrowUp") {
+      console.log("pressed Up");
+      top = top - 2;
+    } else if(event.code === "ArrowDown") {
+      console.log("pressed Down");
+      top = top + 2;
+    } else if(event.code === "ArrowLeft") {
+      console.log("pressed Left");
+      if(left < 2) {
+        return;
+      }
+      left = left - 2;
+    } else if(event.code === "ArrowRight") {
+      console.log("pressed Right");
+      left = left + 2;
+    }
+
+    thingToMove.style.top = top + "px";
+    thingToMove.style.left = left + "px";
   }
 
-  function goLeft() {
-    var myDiv = document.querySelector("#my-div");
-    var left = parseInt(myDiv.style.left);
-    left-=10;
-    myDiv.style.left = left + "px";
-  }
+  // myMouseHandler();
 
-  window.addEventListener("keydown", function(event) {
-    // console.log(event.code);
-    if(event.code === "ArrowUp")
-      goUp();
-    else if(event.code === "ArrowDown")
-      goDown();
-    else if(event.code === "ArrowLeft")
-      goLeft();
-    else if(event.code === "ArrowRight")
-      goRight();
-  });
+  var myButton = document.querySelector("#my-submit");
+  myButton.addEventListener("click", myMouseHandler);
 
-  document.querySelector("#my-div").style.top = "10px";
-  document.querySelector("#my-div").style.left = "10px";
+  // window.addEventListener("click", function () {
+  //   console.log("window clicked");
+  // });
+  document.querySelector("#my-input").addEventListener("keyup", capitalizeTextInput);
+  document.querySelector("#my-input2").addEventListener("keyup", capitalizeTextInput);
 
-  window.addEventListener("click", function() {
-    console.log("You clicked window");
-  });
+  window.addEventListener("keydown", processKeyDown);
 
-  document.addEventListener("click", function() {
-    console.log("You clicked document");
-  });
-
-  document.querySelector("#click-here").addEventListener("click", function() {
-    console.log("You clicked element");
-  });
-
-  document.querySelector("#my-input").addEventListener("change", function(event) {
-    // convert to upper case
-    var newText = event.target.value.toUpperCase();
-    document.querySelector("#my-input").value = newText;
-  });
-
-  var myFunctionVariable = function handleSubmit(event) {
-    var inputText = document.querySelector("#my-input").value.trim();
-    if(inputText.length < 1) {
-      console.log("Type something please!");
+  function validateBeforeSubmit(event) {
+    var testInput = document.querySelector("#my-input").value;
+    if(testInput.length === 0) {
+      window.alert("Please type something!");
       event.preventDefault();
       return;
     }
-    // by default will continue submit
-  };
 
-  document.querySelector("#my-form").addEventListener("submit", myFunctionVariable);
+    // if you get here then validation is ok and ready to submit
+    // normal submit default handler will be called after this
+  }
+  document.querySelector("#my-form").addEventListener("submit", validateBeforeSubmit);
+
 }) ();
 </script>
 </body>
