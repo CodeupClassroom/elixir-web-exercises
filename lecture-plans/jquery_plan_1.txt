@@ -1,0 +1,75 @@
+<!--<img src="https://effigis.com/wp-content/uploads/2015/02/Airbus_Pleiades_50cm_8bit_RGB_Yogyakarta.jpg">-->
+
+
+define jquery: library of js functions that work on a collection of elements that the jquery object returns
+
+
+loading jquery from cdn our locally
+
+let's follow the curriculum and download jquery uncompressed locally
+
+
+window.onload = function() {
+    alert( 'The page has finished loading!' );
+}
+
+demo this with a big fat image
+
+and compare it with this:
+
+$(document).ready(function() {
+    alert( 'The DOM has finished loading!' );
+});
+
+
+putting our js at the bottom of the page ensures that dom will be ready when our js starts executing
+
+show jsbin
+
+do exercise
+
+---------------------
+
+explain $
+	and jQuery
+
+All selector expressions return us a jQuery object, which is just an object that represents zero or more HTML elements, with all of the methods of jQuery attached to it.
+
+UNLIKE querySelector and querySelectorAll
+
+
+.html
+	similar to .innerHTML
+
+.css
+	similar to .style
+
+do a demo with 2 divs the id selector using:
+	querySelector with one
+	$ with the other div
+
+SHOW METHOD CHAINING using 
+	var myDiv = $('#div2');
+	var myDivHTML = myDiv.html();
+
+	and 
+
+	var myDivHTML = $('#div2').html();
+
+
+class selector
+	copy the code samples
+
+	play with css attributes
+
+	show js bin
+
+	DOES jquery .css change INLINE or EMBEDDED or both. which takes precedence?
+
+
+element selector
+
+multiple selectors
+
+all selector
+
