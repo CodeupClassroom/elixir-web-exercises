@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JQuery Exercise</title>
+</head>
+<body>
+
+<h1 id="my-h1" class="my-class-1 codeup"><em>My</em> Header</h1>
+
+<p id="my-p1" class="my-class-1 codeup">A paragraph</p>
+
+<ul id="my-ul">
+  <li id="my-li1">Item 1</li>
+  <li id="my-li2">Item 2</li>
+  <li id="my-li3">Item 3</li>
+  <li id="my-li4">Item 4</li>
+</ul>
+
+<div id="codeup" class="my-class-2">
+  <p id="my-p2" class="my-class-1 codeup">Another paragraph</p>
+</div>
+
+<script type="text/javascript" src="js/jquery-2.2.4.js"></script>
+
+<!--<script type="text/javascript" src="js/my-custom-javascript.js"></script>"-->
+
+<script>
+  $(document).ready(function() {
+    // alert( 'The DOM has finished loading!' );
+    // alert($("#my-p2").html());
+
+    // $(".codeup").css("border", "1px solid red");
+
+    $("li").css("font-size", "60px");
+    // $("h1").css("background-color", "yellow");
+    // $("p").css("background-color", "yellow");
+    // $("li").css("background-color", "yellow");
+
+    $("#my-p1, .codeup, p, li").css("background-color", "yellow");
+  });
+</script>
+</body>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JQuery Exercise</title>
+</head>
+<body>
+
+<h1 id="my-heading" class="hello-text codeup">Hello H1</h1>
+
+<p id="my-paragraph" class="hello-text codeup">Hello P</p>
+
+<ul id="my-list" class="hello-text">
+  <li id="item-1" class="hello-text">Item 1</li>
+  <li id="item-2" class="hello-text">Item 2</li>
+  <li id="item-3" class="hello-text">Item 3</li>
+  <li id="item-4" class="hello-text">Item 4</li>
+</ul>
+
+<div id="my-div" class="text-container">
+  <p id="my-p2" class="hello-text ">Hello from P inside a div</p>
+</div>
+
+<script type="text/javascript" src="js/jquery-2.2.4.js"></script>
+
+<!--<script type="text/javascript" src="js/my-custom-javascript.js"></script>"-->
+
+<script>
+  $(document).ready(function() {
+    // alert($("#my-paragraph").html());
+    // alert($("#item-1").html());
+
+    // $(".codeup").css("border", "1px solid red");
+
+    // $("li").css("font-size", "40px");
+    // $("h1").css("background-color", "yellow");
+    // $("p").css("background-color", "yellow");
+    // $("li").css("background-color", "yellow");
+    //
+    // alert($("h1").html());
+
+    $("h1, p, li").css("background-color", "yellow");
+  });
+</script>
+</body>
