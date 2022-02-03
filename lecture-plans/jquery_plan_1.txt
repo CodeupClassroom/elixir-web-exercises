@@ -1,5 +1,6 @@
 <!--<img src="https://effigis.com/wp-content/uploads/2015/02/Airbus_Pleiades_50cm_8bit_RGB_Yogyakarta.jpg">-->
 
+console.log($.fn.jquery);
 
 define jquery: library of js functions that work on a collection of elements that the jquery object returns
 

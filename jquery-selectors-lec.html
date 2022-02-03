@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Selectors</title>
+</head>
+<body>
+
+<div id="div1" class="myDivs">
+    <h1>hello world</h1>
+</div>
+
+<div id="div2" class="myDivs">
+    <h2>another div</h2>
+</div>
+
+
+<script src="/js/jquery-2.2.4.js"></script>
+
+
+<script>
+    // vanilla js
+    var myDiv = document.querySelector("#div1");
+    console.log(myDiv.innerHTML);
+    myDiv.innerHTML = "<h4>hello world</h4>";
+    myDiv.style.color = "white";
+
+    // returns a jquery version of the element
+    var myDiv2 = $("#div1");
+
+    console.log("jquery html contents of div1: " + myDiv2.html());
+    myDiv2.html("<p>hello world again</p>");
+
+    // first save a reference to all of myDivs
+    // var allMyDivs = $(".myDivs");
+    // allMyDivs.html("<p>some boring text</p>");
+
+    // this does the same thing as the above except it uses method chaining
+    // another name for method chaining is: fluent interface
+    $(".myDivs")
+        .html("<p>some boring text</p>")
+        .css('background-color', 'green');
+
+    // does not work!!! jquery is superior!
+    // document.querySelectorAll(".myDivs").innerHTML("more stuff goes here");
+    // $(".myDivs").css('background-color', 'green');
+    $("p").css("font-weight", "bolder");
+
+
+</script>
+
+</body>
+</html>
