@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM: Event Fun</title>
+
+</head>
+<body>
+
+<form id="my-form" method="post" action="https://request-inspector.glitch.me/">
+    <button id="my-button" type="button">Click here to win!</button>
+</form>
+
+<script>
+    (function() {
+        "use strict";
+
+        var moveButton = function () {
+            var buttonStyle = document.querySelector("#my-button").style;
+            buttonStyle.position = "absolute";
+            buttonStyle.top = Math.random() * window.innerHeight + "px";
+            buttonStyle.left = Math.random() * window.innerWidth + "px";
+        }
+
+        document.querySelector("#my-button").addEventListener("mouseover", moveButton);
+    }) ();
+</script>
+</body>
+</html>

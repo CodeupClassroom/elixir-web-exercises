@@ -1,108 +1,126 @@
-"use strict;"
-
-// function arrayToString(myArray) {
-//     var myString = "";
-//     for (let i = 0; i < myArray.length; i++) {
-//         myString += myArray[i];
+// "use strict;"
 //
+// // function arrayToString(myArray) {
+// //     var myString = "";
+// //     for (let i = 0; i < myArray.length; i++) {
+// //         myString += myArray[i];
+// //
+// //     }
+// //     return myString
+// // }
+// //
+// // console.log(arrayToString(["hello", "world"]))
+//
+// function removeAll(myArray, valueToRemove) {
+//
+//     let filteredArr = [];
+//
+//     // negative logic approach - create new filtered array
+//     // for (let i = 0; i < myArray.length; i++) {
+//     //     if (myArray[i] !== valueToRemove){
+//     //         filteredArr.push(myArray[i]);
+//     //     }
+//     // }
+//
+//     // affirmative logic approach - alter array in-place
+//     // for (let i = 0; i < myArray.length; i++) {
+//     //     if(myArray[i] === valueToRemove){
+//     //         myArray.splice(i, 1);
+//     //         i--
+//     //     }
+//     // }
+//
+//     // affirmative logic WITH filtered array
+//     for (let i = 0; i < myArray.length; i++) {
+//         if (myArray[i] === valueToRemove) {
+//             continue;
+//         }
+//         filteredArr.push(myArray[i]);
 //     }
-//     return myString
+//
+//     return filteredArr; // or myArray
 // }
 //
-// console.log(arrayToString(["hello", "world"]))
+// var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "reference error", "type error"];
+//
+// console.log(removeAll(bugs, "ant"));
+//
+//
+//
+//
+// function randomOrderGenerator(arrOfStudents) {
+//     let randomArray = [];
+//     let i = 0;
+//     do {
+//         let randomStudent = arrOfStudents[Math.floor(Math.random()*arrOfStudents.length)]
+//         if (randomArray.includes(randomStudent)) {
+//             continue;
+//         }
+//         randomArray[i] = randomStudent;
+//         i++;
+//     } while (i < arrOfStudents.length)
+//     return randomArray;
+// }
+//
+// console.log(randomOrderGenerator(["Hector", "David", "Brendan", "Brice", "Collin", "Daniel", "Emilio", "Irvin", "Justin", "Jennifer", "Micah", "Patrick", "Rachel", "Raymond", "Scott", "Trevor", "Wesley", "William"]));
+//
+// function elixirGroupOfThreeSlicer(arr) {
+//     let groupOne = arr.slice(0, 3);
+//     let groupTwo = arr.slice(3, 6);
+//     let groupThree = arr.slice(6, 9);
+//     let groupFour = arr.slice(9, 12);
+//     let groupFive = arr.slice(12, 15);
+//     let groupSix = arr.slice(15);
+//     console.log(groupOne)
+//     console.log(groupTwo)
+//     console.log(groupThree)
+//     console.log(groupFour)
+//     console.log(groupFive)
+//     console.log(groupSix)
+//
+// }
+// elixirGroupOfThreeSlicer(randomOrderGenerator(["Hector", "David", "Brendan", "Brice", "Collin", "Daniel", "Emilio", "Irvin", "Justin", "Jennifer", "Micah", "Patrick", "Rachel", "Raymond", "Scott", "Trevor", "Wesley", "William"]))
+//
+//
+// function reverseString(str) {
+//     let result = "";
+//     for (let i = str.length-1; i >=0 ; i--) {
+//         result += str[i];
+//     }
+//     return result;
+// }
+//
+// console.log(reverseString("Hello"));
+//
+//
+// function findAverage(grades) {
+//     let sum = 0;
+//     grades.forEach(function (grade) {
+//         sum += grade;
+//     });
+//     return sum / grades.length;
+// }
+//
+// console.log(findAverage([95, 74, 86, 100]));
 
-function removeAll(myArray, valueToRemove) {
+// write the function
+function isANumber(aNumber) {
+    // all the code for what the function is supposed to do
 
-    let filteredArr = [];
-
-    // negative logic approach - create new filtered array
-    // for (let i = 0; i < myArray.length; i++) {
-    //     if (myArray[i] !== valueToRemove){
-    //         filteredArr.push(myArray[i]);
-    //     }
-    // }
-
-    // affirmative logic approach - alter array in-place
-    // for (let i = 0; i < myArray.length; i++) {
-    //     if(myArray[i] === valueToRemove){
-    //         myArray.splice(i, 1);
-    //         i--
-    //     }
-    // }
-
-    // affirmative logic WITH filtered array
-    for (let i = 0; i < myArray.length; i++) {
-        if (myArray[i] === valueToRemove) {
-            continue;
-        }
-        filteredArr.push(myArray[i]);
+    // if the typeof aNumber is "number" then return true
+    if(typeof aNumber === "number") {
+        return true;
+    } else {
+        // otherwise return false
+        return false;
     }
 
-    return filteredArr; // or myArray
 }
 
-var bugs = ["mosquito", "ant", "scorpion", "ant", "ant", "mosquito", "typo", "reference error", "type error"];
 
-console.log(removeAll(bugs, "ant"));
-
-
-
-
-function randomOrderGenerator(arrOfStudents) {
-    let randomArray = [];
-    let i = 0;
-    do {
-        let randomStudent = arrOfStudents[Math.floor(Math.random()*arrOfStudents.length)]
-        if (randomArray.includes(randomStudent)) {
-            continue;
-        }
-        randomArray[i] = randomStudent;
-        i++;
-    } while (i < arrOfStudents.length)
-    return randomArray;
-}
-
-console.log(randomOrderGenerator(["Hector", "David", "Brendan", "Brice", "Collin", "Daniel", "Emilio", "Irvin", "Justin", "Jennifer", "Micah", "Patrick", "Rachel", "Raymond", "Scott", "Trevor", "Wesley", "William"]));
-
-function elixirGroupOfThreeSlicer(arr) {
-    let groupOne = arr.slice(0, 3);
-    let groupTwo = arr.slice(3, 6);
-    let groupThree = arr.slice(6, 9);
-    let groupFour = arr.slice(9, 12);
-    let groupFive = arr.slice(12, 15);
-    let groupSix = arr.slice(15);
-    console.log(groupOne)
-    console.log(groupTwo)
-    console.log(groupThree)
-    console.log(groupFour)
-    console.log(groupFive)
-    console.log(groupSix)
-
-}
-elixirGroupOfThreeSlicer(randomOrderGenerator(["Hector", "David", "Brendan", "Brice", "Collin", "Daniel", "Emilio", "Irvin", "Justin", "Jennifer", "Micah", "Patrick", "Rachel", "Raymond", "Scott", "Trevor", "Wesley", "William"]))
-
-
-function reverseString(str) {
-    let result = "";
-    for (let i = str.length-1; i >=0 ; i--) {
-        result += str[i];
-    }
-    return result;
-}
-
-console.log(reverseString("Hello"));
-
-
-function findAverage(grades) {
-    let sum = 0;
-    grades.forEach(function (grade) {
-        sum += grade;
-    });
-    return sum / grades.length;
-}
-
-console.log(findAverage([95, 74, 86, 100]));
-
+// call the function
+console.log(isANumber(1212)); // returns true
+console.log(isANumber("bob")); //  returns false
 
 
 

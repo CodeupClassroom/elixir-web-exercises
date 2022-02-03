@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DOM: Events</title>
+
+  <style>
+    #my-div {
+      position: absolute;
+    }
+  </style>
+
+</head>
+<body>
+
+<div id="my-div">
+  <p class="sub-paragraph">
+    Some text
+  </p>
+</div>
+
+<br>
+<h1 id="click-here">Click Here</h1>
+
+<br>
+<form id="my-form" method="post" action="https://request-inspector.glitch.me/">
+  <input id="my-input" name="my-input" type="text" placeholder="type something">
+  <button id="my-submit" type="submit">Submit</button>
+</form>
+
+<script>
+(function() {
+  "use strict";
+
+  function goUp() {
+    var myDiv = document.querySelector("#my-div");
+    var top = parseInt(myDiv.style.top);
+    top-=10;
+    myDiv.style.top = top + "px";
+  }
+
+  function goDown() {
+    var myDiv = document.querySelector("#my-div");
+    var top = parseInt(myDiv.style.top);
+    top+=10;
+    myDiv.style.top = top + "px";
+  }
+
+  function goRight() {
+    var myDiv = document.querySelector("#my-div");
+    var left = parseInt(myDiv.style.left);
+    left+=10;
+    myDiv.style.left = left + "px";
+  }
+
+  function goLeft() {
+    var myDiv = document.querySelector("#my-div");
+    var left = parseInt(myDiv.style.left);
+    left-=10;
+    myDiv.style.left = left + "px";
+  }
+
+  window.addEventListener("keydown", function(event) {
+    // console.log(event.code);
+    if(event.code === "ArrowUp")
+      goUp();
+    else if(event.code === "ArrowDown")
+      goDown();
+    else if(event.code === "ArrowLeft")
+      goLeft();
+    else if(event.code === "ArrowRight")
+      goRight();
+  });
+
+  document.querySelector("#my-div").style.top = "10px";
+  document.querySelector("#my-div").style.left = "10px";
+
+  window.addEventListener("click", function() {
+    console.log("You clicked window");
+  });
+
+  document.addEventListener("click", function() {
+    console.log("You clicked document");
+  });
+
+  document.querySelector("#click-here").addEventListener("click", function() {
+    console.log("You clicked element");
+  });
+
+  document.querySelector("#my-input").addEventListener("change", function(event) {
+    // convert to upper case
+    var newText = event.target.value.toUpperCase();
+    document.querySelector("#my-input").value = newText;
+  });
+
+  var myFunctionVariable = function handleSubmit(event) {
+    var inputText = document.querySelector("#my-input").value.trim();
+    if(inputText.length < 1) {
+      console.log("Type something please!");
+      event.preventDefault();
+      return;
+    }
+    // by default will continue submit
+  };
+
+  document.querySelector("#my-form").addEventListener("submit", myFunctionVariable);
+}) ();
+</script>
+</body>
+</html>
