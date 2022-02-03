@@ -1,0 +1,28 @@
+@media screen and (max-width:970px) {
+    .img-1 {
+        float: right;
+    }
+    .menu-1 {
+        position: absolute;
+        top: 100px;
+        /*float: left;*/
+    }
+    .menu-2 {
+        position: absolute;
+        top: 100px;
+        left: 150px;
+        /*float: left;*/
+    }
+}
+
+@media screen and (min-width:970px) {
+    .img-1 {
+        float: left;
+    }
+    .menu-1 {
+        float: right;
+    }
+    .menu-2 {
+        float: right;
+    }
+}
