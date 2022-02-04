@@ -1,0 +1,199 @@
+es6_plan.txt
+
+-----------------------------
+EXPONENTIATION
+
+Math.pow(5,3)
+
+5 ** 3
+
+
+-----------------------------
+LET
+
+type in var and see intellij's suggestions
+
+what is block scope? the code block between braces for ifs and loops
+
+type this out:
+
+if (true) {
+    var test2 = "lou";
+}
+console.log(test2);
+
+and then change var to let
+	intellij shows you the block scope
+
+what does const mean?
+	can only be assigned a value once (i.e., initialized only)
+
+try:
+	const test3;
+
+
+-----------------------------
+TEMPLATE STRINGS
+
+var fullName = "Bob";
+var age = 30;
+var gender = "Male";
+var job = "Developer";
+
+console.log("Name: " + fullName + " Age: " + age + " Gender: " + gender + " Job: " + job);
+console.log(`Name: ${fullName} Age: ${age} Gender: ${gender} Job: ${job}`);
+
+also supports multi-line without having to concat lines of strings
+
+console.log(`Name: ${fullName} 
+Age: ${age} 
+Gender: ${gender} 
+Job: ${job}`);
+
+
+-----------------------------
+FOR OF
+
+a little ugly compared to java for or foreach in other languages
+
+similar to an array's forEach method
+
+BUT can break out of a for of early
+cannot easily do that in forEach
+	if(fruit.name === "pear")
+        break;
+
+what is an "iterable"? technically a JS protocol
+
+e.g., arrays and maps. but not objects (makes sense)
+
+let test4 = [
+    {
+        name: "apple",
+        qty: 4
+    },
+    {
+        name: "pear",
+        qty: 2
+    },
+    {
+        name: "banana",
+        qty: 5
+    },
+    {
+        name: "grape",
+        qty: 3
+    }
+]
+
+for (let fruit of test4) {
+    // this does nothing
+    // fruit = "xxx";
+
+    // this works
+    fruit.qty = 2;
+}
+console.log(test4);
+
+
+
+-----------------------------
+ARROW FUNCTIONS
+
+shorter syntax for declaring functions as arguments
+	or assigning to function variables
+
+
+Lexical scoping: Variables declared outside of a function are global variables and are visible everywhere in a JavaScript program. Variables declared inside a function have function scope and are visible only to code that appears inside that function.
+
+
+$("#myButton").click( function(event) {
+	event.preventDefault();
+
+	if(validateData) {
+		processData();
+	}
+});
+
+
+$("#myButton").click( (event) => {
+	event.preventDefault();
+
+	if(validateData) {
+		processData();
+	}
+});
+
+not much different in the surface BUT
+	can ignore lots of things if function is small enough
+
+const sayHello = function (name) {
+    return 'Hello, ' + name + '!';
+}
+
+// same as
+const sayHello = name => 'Hello, ' + name + '!';
+
+	ignore ( and ) if only 1 parameter
+
+	ignore { and } if body is 1 statement
+
+	has IMPLICIT return if body is 1 expression
+
+	WEIRD TO READ THO
+
+
+-----------------------------
+PARAMETER DEFAULTS
+
+very handy. saves writing code to check if argument was provided
+
+// es6 syntax (including template strings)
+function sayHello(name = 'World') {
+    return `Hello, ${name}!`;
+}
+
+sayHello(); // "Hello, World!"
+sayHello('codeup'); // "Hello, codeup!"
+
+
+works for arrow functions as well
+
+
+-----------------------------
+OBJECT PROPERTY VARIABLE ASSIGNMENT
+
+simpler to create objects from separate variables
+
+
+var fullName = "Bob";
+var age = 30;
+var gender = "Male";
+var job = "Developer";
+
+var person = {
+	fullName,
+	age,
+	gender, 
+	job
+}
+
+console.log(person);
+
+
+-----------------------------
+OBJECT DESTRUCTURING
+
+simpler to create variables from objects
+
+const person = {name: 'codeup', age: 4};
+const {name, age} = person;
+
+
+can do the same for function parameters
+
+function printPerson({name, age}) {
+	console.log(name);
+	console.log(age);
+}
+

@@ -367,7 +367,80 @@ console.log(isANumber("bob")); //  returns false
 // console.log(upperCase(true)   );          // false
 // console.log(upperCase()     );                  // false
 
-function upperCase(input) {
-    // var output = /* do something to calculate output */;
-    return input.toUpperCase();
+// function upperCase(input) {
+//     // var output = /* do something to calculate output */;
+//     return input.toUpperCase();
+// }
+
+// functions have block scope
+function foo() {
+    var test1 = "bob";
 }
+
+foo();
+// console.log(test1); // doesn't work
+
+if (true) {
+    var test2 = "lou";
+}
+console.log(test2);
+
+// const test3;
+
+var fullName = "Bob";
+var age = 30;
+var gender = "Male";
+var job = "Developer";
+
+console.log("Name: " + fullName + " Age: " + age + " Gender: " + gender + " Job: " + job);
+console.log(`Name: ${fullName} Age: ${age} Gender: ${gender} Job: ${job}`);
+
+console.log(`Name: ${fullName} 
+Age: ${age} 
+Gender: ${gender} 
+Job: ${job}`);
+
+let test4 = [
+    {
+        name: "apple",
+        qty: 4
+    },
+    {
+        name: "pear",
+        qty: 2
+    },
+    {
+        name: "banana",
+        qty: 5
+    },
+    {
+        name: "grape",
+        qty: 3
+    }
+]
+
+for (let fruit of test4) {
+    // this does nothing
+    // fruit = "xxx";
+
+    // this works
+    fruit.qty = 2;
+    if(fruit.name === "pear")
+        break;
+}
+console.log(test4);
+
+
+var fullName = "Bob";
+var age = 30;
+var gender = "Male";
+var job = "Developer";
+
+var person = {
+    fullName,
+    age,
+    gender,
+    job
+}
+
+console.log(person);
