@@ -1,13 +1,15 @@
 // Using vanilla JS
-// document.getElementsByClassName('button').addEventListener('click', function () {
-//     console.log("A button was clicked");
-// })
+document.getElementById('vanilla').addEventListener('click', function () {
+    console.log("A button was clicked");
+});
 
 
 $(document).ready(function () {
 
     alert('Hello from jquery');
 
+
+    // MOUSE EVENTS
     $('li').click(function () {
         $(this).css('background-color', 'yellow')
     })
@@ -31,6 +33,11 @@ $(document).ready(function () {
     $('.sec-intro').hover(
         function () {
             $(this).css('font-style', 'italic')
+        },
+        function () {
+            $(this).css('font-style', 'normal')
         })
+
+
 
 })
