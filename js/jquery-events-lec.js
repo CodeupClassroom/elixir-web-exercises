@@ -1,7 +1,11 @@
 // Using vanilla JS
-document.getElementById('vanilla').addEventListener('click', function () {
-    console.log("A button was clicked");
-});
+// document.getElementById('vanilla').addEventListener('click', function () {
+//     console.log("A button was clicked");
+// });
+
+// document.getElementById('vanilla').addEventListener('keydown', function () {
+//     console.log("A button was clicked");
+// });
 
 
 $(document).ready(function () {
@@ -38,6 +42,29 @@ $(document).ready(function () {
             $(this).css('font-style', 'normal')
         })
 
+    // KEYBOARD EVENTS
 
+    // $('#search').keydown(function (event) {
+    //     console.log(event.keyCode);
+    //     console.log('a key was pressed down');
+    // })
+
+    // $('#search').keypress(function (event) {
+    //     console.log(event.keyCode);
+    //     console.log('a key was pressed down');
+    // })
+
+    // $('#search').keyup(function (event) {
+    //     console.log(event.keyCode);
+    //     console.log('a key was pressed and released');
+    // })
+
+
+    $('#search').on('keyup', function (e) {
+        console.log(event.keyCode);
+        console.log('a key was pressed and released');
+    })
+
+    $('#search').off();
 
 })
