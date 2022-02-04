@@ -444,3 +444,33 @@ var person = {
 }
 
 console.log(person);
+
+
+function convertLowHighToObject(lowHighStr) {
+    let lowHighArr = lowHighStr.split(', ');
+    return {
+        low: parseInt(lowHighArr[0]),
+        high: parseInt(lowHighArr[1])
+    }
+}
+
+console.log(convertLowHighToObject('35, 42'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

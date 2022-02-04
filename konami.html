@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script src="js/jquery-2.2.4.js" ></script>
+
+<script>
+    $(document).ready(function (){
+        console.log("Hello from jquery!")
+        let konamiKeys = [38, 38, 40, 40]
+        let konamiPosition = 0;
+
+        $(document).keyup(function (e) {
+            let expectedKey = konamiKeys[konamiPosition];
+            let keyPressed = e.keyCode;
+            if (expectedKey === keyPressed) {
+                konamiPosition++;
+                if (konamiPosition === konamiKeys.length) {
+                    $('body').css('background-color', 'blue');
+                    konamiPosition = 0;
+                }
+            } else {
+                konamiPosition = 0;
+            }
+        })
+
+    })
+</script>
+</body>
+</html>
