@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Lecture</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="container">
+    <div id="my-row" class="row">
+
+    </div>
+
+</div>
+
+<script src="/js/jquery-2.2.4.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script>
+    (function () {
+        "use strict;"
+
+        $.ajax("/data/dogs.json", {
+            type: "GET"
+        }).done(function(data, status, jqXhr) {
+            // this gets called when ajax finishes successfully
+            // reading the resource
+            // console.log(data);
+            data.forEach(function(dog) {
+                // console.log(dog);
+                var newDogHTML = `
+<div class="card col-6" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">${dog.name}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Age: ${dog.age}</h6>
+  </div>
+</div>
+`;
+                $("#my-row").append(newDogHTML);
+            })
+            // console.log(status);
+            // console.log(jqXhr.status);
+
+        }).fail(function(jqXhr, status, error) {
+            switch(jqXhr.status) {
+                case 400:
+                    console.log("Your data are wrong!");
+                    break;
+                case 404:
+                    console.log("Can't find your file!");
+                    break;
+            }
+            console.log(error);
+            console.log(status);
+            // console.log(jqXhr.status);
+        });
+
+        console.log("end of script");
+
+    })();
+</script>
+</body>
+</html>
