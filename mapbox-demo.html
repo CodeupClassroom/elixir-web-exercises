@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox Demo</title>
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+
+    <style>
+        #my-map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id='my-map'></div>
+
+<script src="/js/jquery-2.2.4.js"></script>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+
+<script src="js/keys.js"></script>
+
+<script>
+    mapboxgl.accessToken = MAPBOX_API_KEY;
+    const map = new mapboxgl.Map({
+        container: 'my-map', // container ID
+        style: 'mapbox://styles/mapbox/dark-v10', // style URL
+        center: [-98.4861, 29.4260], // starting position [lng, lat]
+        zoom: 11 // starting zoom
+    });
+
+    // console.log($.fn.jquery);
+
+    const marker1 = new mapboxgl.Marker().setLngLat( [-98.4861, 29.4260]).addTo(map);
+    // if(Math.random() < .5) {
+    //     map.style = 'mapbox://styles/mapbox/dark-v10';
+    // } else {
+    //     map.style = 'mapbox://styles/mapbox/streets-v11';
+    // }
+</script>
+
+</body>
+</html>
