@@ -36,12 +36,71 @@
 
     // console.log($.fn.jquery);
 
-    const marker1 = new mapboxgl.Marker().setLngLat( [-98.4861, 29.4260]).addTo(map);
+    // const marker1 = new mapboxgl.Marker().setLngLat( [-98.4861, 29.4260]).addTo(map);
     // if(Math.random() < .5) {
     //     map.style = 'mapbox://styles/mapbox/dark-v10';
     // } else {
     //     map.style = 'mapbox://styles/mapbox/streets-v11';
     // }
+
+    var marker = new mapboxgl.Marker()
+        .setLngLat([-98.4861, 29.4260])
+        .addTo(map);
+
+    var popup = new mapboxgl.Popup()
+        .setLngLat([-98.489615, 29.426827])
+        .setHTML("<p>Codeup Rocks!</p>")
+        .addTo(map)
+
+    var alamoPopup = new mapboxgl.Popup()
+        .setHTML("<img src=\"https://picsum.photos/200/200\" class=\"card-img-top\" alt=\"...\"><p>Remember The Alamo!</p>")
+
+    marker.setPopup(alamoPopup)
+
+    function geocode(search, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+            .then(function(res) {
+                return res.json();
+                // to get all the data from the request, comment out the following three lines...
+            }).then(function(data) {
+                return data.features[0].center;
+            });
+    }
+
+    function reverseGeocode(coordinates, token) {
+        var baseUrl = 'https://api.mapbox.com';
+        var endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
+            .then(function(res) {
+                return res.json();
+            })
+            // to get all the data from the request, comment out the following three lines...
+            .then(function(data) {
+                return data;
+            });
+    }
+
+    geocode("600 Navarro St. San Antonio", MAPBOX_API_KEY).then(function(results) {
+          // console.log(results);
+        map.setCenter(results);
+    });
+
+    reverseGeocode({lat: 32.77, lng: -96.79}, MAPBOX_API_KEY).then(function(results) {
+        console.log(results.features[0].place_name);
+        // results.features[0].place_name
+        var marker = new mapboxgl.Marker()
+            .setLngLat(results.query)
+            .addTo(map);
+        var popup = new mapboxgl.Popup()
+            .setLngLat(results.query)
+            .setHTML("<p>" + results.features[0].place_name + "</p>")
+            .addTo(map)
+        marker.setPopup(popup);
+        map.setCenter(results.query);
+    });
+
 </script>
 
 </body>
