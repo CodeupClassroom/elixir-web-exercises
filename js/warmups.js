@@ -457,20 +457,18 @@ function convertLowHighToObject(lowHighStr) {
 console.log(convertLowHighToObject('35, 42'));
 
 
+function countDuplicates(input) {
+    let letterCountObject = {};
+    let count = 1;
+    for (let i = 0; i < input.length; i++) {
+        if (!(input[i] in letterCountObject)) {
+            letterCountObject[input[i]] = count;
+        } else {
+            letterCountObject[input[i]] = letterCountObject[input[i]] + 1;
+        }
+    }
+    return letterCountObject;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// adsjfdsfsfjsdjfhacabcsbajda
+console.log(countDuplicates("adsjfdsfsfjsdjfhacabcsbajda"));
