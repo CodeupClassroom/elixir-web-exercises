@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Openweather API Demo</title>
+
+</head>
+<body>
+
+</body>
+
+<script src="/js/jquery-2.2.4.js"></script>
+
+<script>
+    (function() {
+        const OPENWEATHER_KEY = 'c44633dab287ad6aa0232cce2b4a4815';
+
+        function getDayOfWeek(dayNumber) {
+            if(dayNumber === 4) {
+                return "Thu";
+            } else {
+                return "Unknown";
+            }
+        }
+
+        function setTime(timeZ) {
+            return new Intl.DateTimeFormat(navigator.language, {
+                timeZone: timeZ,
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric'
+            }).format(new Date());
+        }
+
+        $(document).ready(function() {
+
+            $.get(`https://api.openweathermap.org/data/2.5/onecall?lat=29.4241&lon=-98.4936&exclude=hourly,minutely&appid=${OPENWEATHER_KEY}&units=imperial`)
+                .done(function (data) {
+                    console.log(data);
+                });
+
+            // const dateMS = ;
+            const myDate = new Date(1644516000 * 1000);
+            const dayOfWeek = getDayOfWeek(myDate.getDay());
+            console.log(myDate.toString().substr(0, 3));
+            console.log(setTime('America/Chicago'))
+        });
+
+    })();
+
+</script>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--    meta includes setup for media queries-->
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Mapbox Square Zero</title>
+
+    <!--    bootstrap first-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
+
+    <!-- YOUR EXTERNAL AND EMBEDDED STYLESHEETS GO HERE -->
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+
+<!--html body goes here-->
+<div id='map'></div>
+
+<div class="container-fluid">
+    <div id="forecast-div" class="row">
+
+    </div>
+</div>
+
+
+<!--from here down should be js imports-->
+<!-- jquery usually first always -->
+<script src="js/jquery-2.2.4.js"></script>
+<!-- then bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+<!-- then other libraries -->
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+
+<script src="https://kit.fontawesome.com/99fe95afd3.js" crossorigin="anonymous"></script>
+
+<!-- YOUR STUFF GETS IMPORTED/WRITTEN HERE -->
+<script src="js/keys.js"></script>
+
+<script>
+    (function() {
+        "use strict";
+        var STARTING_COORDS = [-98.4916, 29.4252];
+        var OPTIMAL_ZOOM_LEVEL = 15;
+
+        mapboxgl.accessToken = MAPBOX_API_KEY;
+
+        // hook up mapbox js with the map div
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            zoom: OPTIMAL_ZOOM_LEVEL,
+            center: STARTING_COORDS
+        });
+        let marker;
+
+
+        function onMoveEnd() {
+            var coords = map.getCenter();
+            // console.log(coords);
+            marker.setLngLat(coords);
+            makePopupForCoords(coords);
+        }
+
+        map.on('moveend', onMoveEnd);
+
+        /* Given a query in the form "lng, lat" or "lat, lng"
+* returns the matching geographic coordinate(s)
+* as search results in carmen geojson format,
+* https://github.com/mapbox/carmen/blob/master/carmen-geojson.md */
+        const coordinatesGeocoder = function (query) {
+// Match anything which looks like
+// decimal degrees coordinate pair.
+            const matches = query.match(
+                /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
+            );
+            if (!matches) {
+                return null;
+            }
+
+            function coordinateFeature(lng, lat) {
+                return {
+                    center: [lng, lat],
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [lng, lat]
+                    },
+                    place_name: 'Lat: ' + lat + ' Lng: ' + lng,
+                    place_type: ['coordinate'],
+                    properties: {},
+                    type: 'Feature'
+                };
+            }
+
+            const coord1 = Number(matches[1]);
+            const coord2 = Number(matches[2]);
+            const geocodes = [];
+
+            if (coord1 < -90 || coord1 > 90) {
+// must be lng, lat
+                geocodes.push(coordinateFeature(coord1, coord2));
+            }
+
+            if (coord2 < -90 || coord2 > 90) {
+// must be lat, lng
+                geocodes.push(coordinateFeature(coord2, coord1));
+            }
+
+            if (geocodes.length === 0) {
+// else could be either lng, lat or lat, lng
+                geocodes.push(coordinateFeature(coord1, coord2));
+                geocodes.push(coordinateFeature(coord2, coord1));
+            }
+
+            return geocodes;
+        };
+
+        map.addControl(
+            new MapboxGeocoder({
+                accessToken: mapboxgl.accessToken,
+                localGeocoder: coordinatesGeocoder,
+                zoom: OPTIMAL_ZOOM_LEVEL,
+                placeholder: 'Try: -40, 170',
+                mapboxgl: mapboxgl,
+                marker: false,
+                reverseGeocode: true
+            })
+        );
+
+        $(document).ready(function() {
+            // Create a new marker.
+            marker = new mapboxgl.Marker({
+                draggable: true
+            }).setLngLat(STARTING_COORDS)
+                .addTo(map);
+
+            marker.on('dragend', endOfMarkerDrag);
+
+        });
+
+        function endOfMarkerDrag() {
+            // grab marker coords wherever it was dropped
+            const coords = marker.getLngLat();
+
+            // console.log(coords);
+
+            // make a popup for the coords and attach it to the marker
+            makePopupForCoords(coords);
+
+        }
+
+        function makePopupForCoords(coords) {
+            // coords is an object of coordinates. lets make an array of the coordinates
+            const coordArray = [coords.lng, coords.lat];
+            const popup = new mapboxgl.Popup({ closeOnClick: false })
+                .setLngLat(coordArray)
+                .setHTML('<p>' + coordArray.join(', ') + '</p>');
+                // .addTo(map);
+            marker.setPopup(popup);
+            popup.addTo(map);
+
+            doForecastingStuffForCoords(coordArray);
+        }
+
+        // note: coords is an array of [lng, lat]
+        function doForecastingStuffForCoords(coords) {
+            var lng = coords[0];
+            var lat = coords[1];
+            $.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=hourly,minutely&appid=${OPENWEATHER_API_KEY}&units=imperial`)
+                .done(function (data) {
+                    console.log(data);
+
+                    // output 5-day forecast to wherever in our page we want it
+                    var html = `
+<div class="col-12">
+    <p>${coords.join(', ')}</p>
+</div>
+`;
+
+                    $("#forecast-div").html(html);
+
+                });
+        }
+    })();
+
+</script>
+</body>
+</html>
