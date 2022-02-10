@@ -182,9 +182,12 @@
                     console.log(data);
 
                     // output 5-day forecast to wherever in our page we want it
+                    var todaysHiTemp = data.daily[0].temp.max;
+                    var tomorrowsHiTemp = data.daily[1].temp.max;
                     var html = `
 <div class="col-12">
-    <p>${coords.join(', ')}</p>
+    <p>Today's high is ${todaysHiTemp}</p>
+    <p>Tomorrow's high is ${tomorrowsHiTemp}</p>
 </div>
 `;
 
