@@ -1,0 +1,38 @@
+jquery-traversal-lec-plan.txt
+
+
+// show each() executing on each element from a class selection
+
+//	show using element parameter
+
+//	show using this 
+
+// ***** NOTE: **** arrow functions do not seem to work!!!
+
+// can we just have the element parameter by itself??? NOPE
+$(".my-paragraphs").each( function(index, element) {
+	console.log(element.html());
+});
+
+$(".my-paragraphs").each( function() {
+	console.log($(this).html());
+});
+
+// similar to the css example 
+
+$(".my-paragraphs").each( function(index) {
+	if(index % 2 === 0) {
+		$(this).css('background-color', 'yellow');
+	}
+});
+
+
+// FIRST and LAST
+$('li').first().css('color', 'blue');
+$('li').last().css('color', 'blue');
+
+// iterate over your NEXT sibling's children
+$('#stack-stuff').next().children().each(function(index, element) {
+	$(element).css('background-color', 'pink');
+});
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Traversal Methods</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="container">
+    <div id="my-row" class="row">
+
+    </div>
+</div>
+<button id="add-card" class="btn btn-primary">Add Card</button>
+<button id="remove-first" class="btn btn-primary">Remove First</button>
+<button id="remove-last" class="btn btn-primary">Remove Last</button>
+
+<script src="/js/jquery-2.2.4.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script src="/js/jquery-traversal.js"></script>
+
+<script>
+    // style="width: 18rem;"
+    const newCardHTML = `
+<div class="card col-6 col-md-4 col-lg-3" >
+  <img src="https://picsum.photos/200/200" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>`;
+
+    $("#add-card").click(function(event) {
+        $("#my-row").append(newCardHTML);
+    });
+    $("#remove-first").click(function(event) {
+        $("#my-row").children().first().remove();
+    });
+    $("#remove-last").click(function(event) {
+        $("#my-row").children().last().remove();
+    });
+</script>
+</body>
+</html>

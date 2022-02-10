@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox Demo</title>
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+
+    <style>
+        #my-map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id='my-map'></div>
+
+<script src="/js/jquery-2.2.4.js"></script>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+<script>
+    mapboxgl.accessToken = MAPBOX_API_KEY;
+    const map = new mapboxgl.Map({
+        container: 'my-map', // container ID
+        style: 'mapbox://styles/mapbox/dark-v10', // style URL
+        center: [-98.4861, 29.4260], // starting position [lng, lat]
+        zoom: 11 // starting zoom
+    });
+
+    async function addPopupOnCoords(lngLat) {
+        var address = await reverseGeocode(lngLat, MAPBOX_API_KEY);
+        if(!address) {
+            console.log("Invalid location!");
+            return;
+        }
+        var popup = new mapboxgl.Popup()
+            .setLngLat([lngLat.lng, lngLat.lat])
+            .setHTML(`<p>${address}</p>`)
+            .addTo(map);
+    }
+
+    map.on("click", function(event) {
+        addPopupOnCoords(event.lngLat);
+    })
+
+</script>
+
+</body>
+</html>

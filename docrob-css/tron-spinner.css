@@ -1,0 +1,55 @@
+.tron-loading {
+    animation: clockwise 1.5s linear infinite;
+    display: block;
+    height: 2em;
+    margin: auto;
+    position: relative;
+    width: 2em;
+}
+
+.tron-loading,
+.tron-loading:before,
+.tron-loading:after {
+    border: .2em solid transparent;
+    border-radius: 50%;
+    border-top-color: rgba(25,255,255,1);
+    margin: auto;
+}
+
+.tron-loading:before,
+.tron-loading:after {
+    content: '';
+    position: absolute;
+}
+
+.tron-loading:before {
+    animation: anticlockwise .9s linear infinite;
+    top: -.6em;
+    right: -.6em;
+    bottom: -.6em;
+    left: -.6em;
+}
+
+.tron-loading:after {
+    animation: anticlockwise .66s linear infinite;
+    top: .3em;
+    right: .3em;
+    bottom: .3em;
+    left: .3em;
+}
+
+@keyframes clockwise {
+    0%  { transform: rotate(0deg) }
+    100%{ transform: rotate(360deg) }
+}
+
+@keyframes anticlockwise {
+    0%  { transform: rotate(360deg) }
+    100%{ transform: rotate(0deg) }
+}
+
+body {
+    background-color: #222;
+    display: flex;
+    min-height: 95vh;
+}

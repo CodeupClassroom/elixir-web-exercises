@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox API Exercise</title>
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+
+    <style>
+        #my-map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id='my-map'></div>
+
+<script src="js/jquery-2.2.4.js"></script>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+
+<script src="js/keys.js"></script>
+
+<script>
+    (function() {
+        "use strict;"
+
+        const OPTIMAL_MAP_ZOOM = 12;
+
+        var restaurants = [
+            "El Milagrito San Antonio TX",
+            "Paesanos San Antonio TX",
+            "PF Changs 255 E Basse Rd Ste 1200, San Antonio, TX 78209"
+        ]
+
+        mapboxgl.accessToken = MAPBOX_API_KEY;
+        const map = new mapboxgl.Map({
+            container: 'my-map', // container ID
+            style: 'mapbox://styles/mapbox/dark-v10', // style URL
+            center: [-98.4861, 29.4260], // starting position [lng, lat]
+            zoom: 11 // starting zoom
+        });
+
+        $(document).ready(function() {
+            restaurants.forEach(function(restaurant, index) {
+                var centerMap = false;
+                if(index === 0)
+                    centerMap = true;
+                moveMapToLocation(restaurant, true, true, centerMap, MAPBOX_API_KEY);
+            });
+        });
+
+        function moveMapToLocation(search, addMarker, addPopup, centerMap, token) {
+            var endPoint = 'https://api.mapbox.com/geocoding/v5/mapbox.places/';
+            $.ajax(endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token, {
+                type: "GET"
+            }).done(function (data, status, jqXhr) {
+                var latLng = data.features[0].center;
+                if(centerMap) {
+                    centerMapOnCoords(latLng);
+                }
+                var marker;
+                if(addMarker) {
+                    marker = new mapboxgl.Marker()
+                        .setLngLat(data.features[0].center)
+                        .addTo(map);
+                }
+                if(addPopup) {
+                    var popup = new mapboxgl.Popup()
+                        .setLngLat([-98.489615, 29.426827])
+                        .setHTML(`<p>${search}</p>`);
+                    if(addMarker) {
+                        marker.setPopup(popup);
+                    }
+                }
+            }).fail(function(jqXhr, status, error) {
+                console.log("moveMapToLocation error: " + error);
+            });
+        }
+
+        function centerMapOnCoords(latLng) {
+            map.setCenter(latLng);
+            map.setZoom(OPTIMAL_MAP_ZOOM);
+        }
+
+    })();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Traversal Methods</title>
+</head>
+<body>
+
+    <p id="p1" class="my-paragraphs">Paragraph 1</p>
+    <p id="p2" class="my-paragraphs">Paragraph 2</p>
+    <p id="p3" class="my-paragraphs">Paragraph 3</p>
+    <p id="p4" class="my-paragraphs">Paragraph 4</p>
+
+    <ul id="stack-stuff">
+        <li>Linux</li>
+        <li>Apache</li>
+        <li>MySQL</li>
+        <li>PHP</li>
+        <li>JavaScript</li>
+    </ul>
+
+    <ul id="fruits">
+        <li id="orange-li">Orange</li>
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Pear</li>
+        <li>Strawberry</li>
+    </ul>
+
+
+    <script src="/js/jquery-2.2.4.js"></script>
+
+    <script>
+        // $("p").each(function(index, element) {
+        //     console.log(element.innerHTML)
+        // });
+
+        // $("p").first().html("Big fat paragraph 1");
+        // $("p").last().html("I hate being last");
+
+        // $("body").children("p").each(function(index, element) {
+        //     console.log(element.innerHTML);
+        // });
+        //
+        // $("#fruits").children().html("generic item");
+
+        // console.log($("#p1").parent());
+        // console.log($("#orange-li").parent().parent());
+
+        console.log($("#orange-li").next());
+
+        $("p").click(function(event) {
+            $(this).html("hello world");
+        });
+    </script>
+</body>
+</html>

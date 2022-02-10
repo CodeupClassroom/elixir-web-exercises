@@ -472,14 +472,3 @@ function countDuplicates(input) {
 
 // adsjfdsfsfjsdjfhacabcsbajda
 console.log(countDuplicates("adsjfdsfsfjsdjfhacabcsbajda"));
-
-
-
-
-
-
-
-
-
-
-

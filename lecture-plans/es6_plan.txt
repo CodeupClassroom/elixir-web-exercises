@@ -197,3 +197,11 @@ function printPerson({name, age}) {
 	console.log(age);
 }
 
+const food = [`olive`,`pizza`,`pasta`,`banana`]
+
+const [foodOne,foodTwo,foodThree,foodFour] = food;
+
+console.log(foodOne)
+console.log(foodTwo)
+console.log(foodThree);
+console.log(foodFour);
