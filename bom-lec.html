@@ -6,6 +6,17 @@
 </head>
 <body>
 
-<script src="js/bom-lec.js"></script>
+<!--<script src="js/bom-lec.js"></script>-->
+<script>
+    let counter = 5;
+
+    function updateCounter() {
+        counter--;
+        console.log(counter);
+    }
+
+    window.setInterval(updateCounter, 1000);
+
+</script>
 </body>
 </html>

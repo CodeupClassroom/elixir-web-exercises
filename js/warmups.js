@@ -372,103 +372,127 @@ console.log(isANumber("bob")); //  returns false
 //     return input.toUpperCase();
 // }
 
-// functions have block scope
-function foo() {
-    var test1 = "bob";
-}
+// // functions have block scope
+// function foo() {
+//     var test1 = "bob";
+// }
+//
+// foo();
+// // console.log(test1); // doesn't work
+//
+// if (true) {
+//     var test2 = "lou";
+// }
+// console.log(test2);
+//
+// // const test3;
+//
+// var fullName = "Bob";
+// var age = 30;
+// var gender = "Male";
+// var job = "Developer";
+//
+// console.log("Name: " + fullName + " Age: " + age + " Gender: " + gender + " Job: " + job);
+// console.log(`Name: ${fullName} Age: ${age} Gender: ${gender} Job: ${job}`);
+//
+// console.log(`Name: ${fullName}
+// Age: ${age}
+// Gender: ${gender}
+// Job: ${job}`);
+//
+// let test4 = [
+//     {
+//         name: "apple",
+//         qty: 4
+//     },
+//     {
+//         name: "pear",
+//         qty: 2
+//     },
+//     {
+//         name: "banana",
+//         qty: 5
+//     },
+//     {
+//         name: "grape",
+//         qty: 3
+//     }
+// ]
+//
+// for (let fruit of test4) {
+//     // this does nothing
+//     // fruit = "xxx";
+//
+//     // this works
+//     fruit.qty = 2;
+//     if(fruit.name === "pear")
+//         break;
+// }
+// console.log(test4);
+//
+//
+// var fullName = "Bob";
+// var age = 30;
+// var gender = "Male";
+// var job = "Developer";
+//
+// var person = {
+//     fullName,
+//     age,
+//     gender,
+//     job
+// }
+//
+// console.log(person);
+//
+//
+// function convertLowHighToObject(lowHighStr) {
+//     let lowHighArr = lowHighStr.split(', ');
+//     return {
+//         low: parseInt(lowHighArr[0]),
+//         high: parseInt(lowHighArr[1])
+//     }
+// }
+//
+// console.log(convertLowHighToObject('35, 42'));
+//
+//
+// function countDuplicates(input) {
+//     let letterCountObject = {};
+//     let count = 1;
+//     for (let i = 0; i < input.length; i++) {
+//         if (!(input[i] in letterCountObject)) {
+//             letterCountObject[input[i]] = count;
+//         } else {
+//             letterCountObject[input[i]] = letterCountObject[input[i]] + 1;
+//         }
+//     }
+//     return letterCountObject;
+// }
+//
+// // adsjfdsfsfjsdjfhacabcsbajda
+// console.log(countDuplicates("adsjfdsfsfjsdjfhacabcsbajda"));
 
-foo();
-// console.log(test1); // doesn't work
-
-if (true) {
-    var test2 = "lou";
-}
-console.log(test2);
-
-// const test3;
-
-var fullName = "Bob";
-var age = 30;
-var gender = "Male";
-var job = "Developer";
-
-console.log("Name: " + fullName + " Age: " + age + " Gender: " + gender + " Job: " + job);
-console.log(`Name: ${fullName} Age: ${age} Gender: ${gender} Job: ${job}`);
-
-console.log(`Name: ${fullName} 
-Age: ${age} 
-Gender: ${gender} 
-Job: ${job}`);
-
-let test4 = [
-    {
-        name: "apple",
-        qty: 4
-    },
-    {
-        name: "pear",
-        qty: 2
-    },
-    {
-        name: "banana",
-        qty: 5
-    },
-    {
-        name: "grape",
-        qty: 3
+var a1 = ["apple", "banana", "cherry", "lemon", "mango", "pear"];
+var a2 = [];
+for (let i = 0; i < a1.length; i++) {
+    if(Math.random() < .5) {
+        a2.push(a1[i]);
+        console.log("1")
+    } else {
+        a2.unshift(a1[i]);
+        console.log("2")
     }
-]
-
-for (let fruit of test4) {
-    // this does nothing
-    // fruit = "xxx";
-
-    // this works
-    fruit.qty = 2;
-    if(fruit.name === "pear")
-        break;
 }
-console.log(test4);
+console.log(a2);
 
-
-var fullName = "Bob";
-var age = 30;
-var gender = "Male";
-var job = "Developer";
-
-var person = {
-    fullName,
-    age,
-    gender,
-    job
+var s1 = "bob sally lou frank louise tom";
+var a3 = s1.split(" ");
+for (let i = 0; i < a3.length; i++) {
+    a3[i] = a3[i].charAt(0).toUpperCase() + a3[i].substring(1);
 }
+console.log(a3.join(" "));
 
-console.log(person);
+var words = "publish,cancer,feed,back,excavation,shift,veteran,craftsman,share,identification,reject,forbid,active,cause,horizon,glow,soap,density,scandal,skip,spectrum,cotton,combination,policeman,agent,social,grip,suit,gradual,ideal,marine,contrast,doctor,rehabilitation,embryo,scale,discovery,trapezoid,retirement,prey,flavor,formulate,shrink,die,environment,plead,accent,sketch,rare,fish";
 
-
-function convertLowHighToObject(lowHighStr) {
-    let lowHighArr = lowHighStr.split(', ');
-    return {
-        low: parseInt(lowHighArr[0]),
-        high: parseInt(lowHighArr[1])
-    }
-}
-
-console.log(convertLowHighToObject('35, 42'));
-
-
-function countDuplicates(input) {
-    let letterCountObject = {};
-    let count = 1;
-    for (let i = 0; i < input.length; i++) {
-        if (!(input[i] in letterCountObject)) {
-            letterCountObject[input[i]] = count;
-        } else {
-            letterCountObject[input[i]] = letterCountObject[input[i]] + 1;
-        }
-    }
-    return letterCountObject;
-}
-
-// adsjfdsfsfjsdjfhacabcsbajda
-console.log(countDuplicates("adsjfdsfsfjsdjfhacabcsbajda"));
+console.log(words.split(",").sort().slice(0, 5));

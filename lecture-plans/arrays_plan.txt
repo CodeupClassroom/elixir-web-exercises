@@ -1,0 +1,152 @@
+ARRAY BASICS
+
+declare people array
+
+declare ages array
+
+log the arrays
+
+log the array lengths
+
+log accessing elements by index
+	ZERO BASED
+
+	access first element
+
+	access second element 
+
+	access last element
+
+	access 2nd to last element
+
+
+
+using loops to ITERATE OVER array
+
+	for loop
+
+		and loop backwards
+
+		and use an if statement (output every other element)
+
+	fori loop in intellij
+
+	forEach loop
+
+		with index
+
+		trying to change element
+
+
+
+ARRAY FUNCTIONS
+
+push
+
+unshift
+
+pop
+	save the element to a variable
+
+shift
+	save the element
+
+
+GAME
+
+push or unshift the following
+	"apple", "banana", "cherry", "lemon", "mango", "pear"
+
+ANSWER:
+push or unshift apple
+push banana
+unshift cherry
+unshift lemon
+push mango
+unshift pear
+
+var answer = [];
+
+answer.push("apple"); // or unshift
+
+answer.???("banana");
+answer.???("cherry");
+answer.???("lemon");
+answer.???("mango");
+answer.???("pear");
+
+console.log(answer);
+
+so that you get
+	[ 'pear', 'lemon', 'cherry', 'apple', 'banana', 'mango' ]
+
+GAME
+
+How to take answer array and end up with just "apple" ???
+
+ANSWER (sequence does not matter)
+pop
+pop
+shift
+shift
+shift
+
+
+FINDING STUFF:
+
+indexOf(value)
+
+lastIndexOf(value)
+
+
+SUBARRAYS
+
+slice(start, [end])
+
+	without end
+
+	with end
+
+
+REORGANIZING ELEMENTS
+	THESE MODIFY THE ORIGINAL ARRAY
+
+reverse
+
+sort
+	LEXICOGRAPHIC SORT!!!
+
+	NUMERIC SORT
+		array.sort(function(a, b) {
+  			return a - b;
+		}
+
+TRANSFORMING ARRAYS TO STRING AND VICE VERSA
+
+split 
+	
+join
+
+PROBLEM:
+	"bob sally lou frank louise tom"
+capitalize all of the words and output the resulting string
+	"Bob Sally Lou Frank Louise Tom"
+
+var s1 = "bob sally lou frank louise tom";
+var a3 = s1.split(" ");
+for (let i = 0; i < a3.length; i++) {
+    a3[i] = a3[i].charAt(0).toUpperCase() + a3[i].substring(1);
+}
+console.log(a3.join(" "));
+
+
+
+
+PROBLEM:
+
+find the 5 alphabetically smallest words in: 
+"publish,cancer,feed,back,excavation,shift,veteran,craftsman,share,identification,reject,forbid,active,cause,horizon,glow,soap,density,scandal,skip,spectrum,cotton,combination,policeman,agent,social,grip,suit,gradual,ideal,marine,contrast,doctor,rehabilitation,embryo,scale,discovery,trapezoid,retirement,prey,flavor,formulate,shrink,die,environment,plead,accent,sketch,rare,fish"
+
+How to find 5 smallest values in ascending order?
+
+answer: words.split(",").sort().slice(0, 5);
