@@ -54,8 +54,16 @@ shift
 
 GAME
 
-push or unshift the following
-	"apple", "banana", "cherry", "lemon", "mango", "pear"
+push or unshift the following IN THIS ORDER
+	"apple"
+	"banana"
+	"cherry"
+	"lemon"
+	"mango"
+	"pear"
+
+so that the result is this:
+	[ 'pear', 'lemon', 'cherry', 'apple', 'banana', 'mango' ]
 
 ANSWER:
 push or unshift apple
