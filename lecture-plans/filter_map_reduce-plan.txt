@@ -1,0 +1,8 @@
+map
+get an array of single property values from an array of objects
+
+e.g., array of person objects, return an array of first names
+
+
+
+reduce can be used

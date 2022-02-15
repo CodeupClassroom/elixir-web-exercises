@@ -42,18 +42,21 @@ using loops to ITERATE OVER array
 ARRAY FUNCTIONS
 
 push
+	explain and show example
 
 unshift
+	explain and show example
 
 pop
+	explain and show example
 	save the element to a variable
 
 shift
+	explain and show example
 	save the element
 
 
 GAME
-
 push or unshift the following IN THIS ORDER
 	"apple"
 	"banana"
@@ -89,7 +92,6 @@ so that you get
 	[ 'pear', 'lemon', 'cherry', 'apple', 'banana', 'mango' ]
 
 GAME
-
 How to take answer array and end up with just "apple" ???
 
 ANSWER (sequence does not matter)
@@ -103,13 +105,15 @@ shift
 FINDING STUFF:
 
 indexOf(value)
+	explain and show example
 
 lastIndexOf(value)
-
+	explain and show example
 
 SUBARRAYS
-
+	
 slice(start, [end])
+	explain and show example
 
 	without end
 
@@ -120,9 +124,13 @@ REORGANIZING ELEMENTS
 	THESE MODIFY THE ORIGINAL ARRAY
 
 reverse
+	explain and show example
+
+	show backwards iteration in a forEach
 
 sort
 	LEXICOGRAPHIC SORT!!!
+	explain and show example
 
 	NUMERIC SORT
 		array.sort(function(a, b) {
@@ -132,14 +140,19 @@ sort
 TRANSFORMING ARRAYS TO STRING AND VICE VERSA
 
 split 
-	
+	explain and show example
+
 join
+	explain and show example
+
 
 PROBLEM:
 	"bob sally lou frank louise tom"
 capitalize all of the words and output the resulting string
 	"Bob Sally Lou Frank Louise Tom"
 
+
+answer:
 var s1 = "bob sally lou frank louise tom";
 var a3 = s1.split(" ");
 for (let i = 0; i < a3.length; i++) {
