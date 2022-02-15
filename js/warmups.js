@@ -473,26 +473,87 @@ console.log(isANumber("bob")); //  returns false
 // // adsjfdsfsfjsdjfhacabcsbajda
 // console.log(countDuplicates("adsjfdsfsfjsdjfhacabcsbajda"));
 
-var a1 = ["apple", "banana", "cherry", "lemon", "mango", "pear"];
-var a2 = [];
-for (let i = 0; i < a1.length; i++) {
-    if(Math.random() < .5) {
-        a2.push(a1[i]);
-        console.log("1")
-    } else {
-        a2.unshift(a1[i]);
-        console.log("2")
-    }
-}
-console.log(a2);
+// var a1 = ["apple", "banana", "cherry", "lemon", "mango", "pear"];
+// var a2 = [];
+// for (let i = 0; i < a1.length; i++) {
+//     if(Math.random() < .5) {
+//         a2.push(a1[i]);
+//         console.log("1")
+//     } else {
+//         a2.unshift(a1[i]);
+//         console.log("2")
+//     }
+// }
+// console.log(a2);
+//
+// var s1 = "bob sally lou frank louise tom";
+// var a3 = s1.split(" ");
+// for (let i = 0; i < a3.length; i++) {
+//     a3[i] = a3[i].charAt(0).toUpperCase() + a3[i].substring(1);
+// }
+// console.log(a3.join(" "));
+//
+// var words = "publish,cancer,feed,back,excavation,shift,veteran,craftsman,share,identification,reject,forbid,active,cause,horizon,glow,soap,density,scandal,skip,spectrum,cotton,combination,policeman,agent,social,grip,suit,gradual,ideal,marine,contrast,doctor,rehabilitation,embryo,scale,discovery,trapezoid,retirement,prey,flavor,formulate,shrink,die,environment,plead,accent,sketch,rare,fish";
+//
+// console.log(words.split(",").sort().slice(0, 5));
 
-var s1 = "bob sally lou frank louise tom";
-var a3 = s1.split(" ");
-for (let i = 0; i < a3.length; i++) {
-    a3[i] = a3[i].charAt(0).toUpperCase() + a3[i].substring(1);
-}
-console.log(a3.join(" "));
+const people = [
+    {
+        id: 1,
+        name: "Bob",
+        age: 30,
+        job: "Developer"
+    },
+    {
+        id: 2,
+        name: "Tom",
+        age: 40,
+        job: "Student"
+    },
+    {
+        id: 3,
+        name: "Sally",
+        age: 18,
+        job: "Developer"
+    },
+    {
+        id: 4,
+        name: "Sue",
+        age: 26,
+        job: "Developer"
+    },
+    {
+        id: 5,
+        name: "Lou",
+        age: 21,
+        job: "Student"
+    },
+    {
+        id: 6,
+        name: "Trish",
+        age: 35,
+        job: "Student"
+    },
+]
 
-var words = "publish,cancer,feed,back,excavation,shift,veteran,craftsman,share,identification,reject,forbid,active,cause,horizon,glow,soap,density,scandal,skip,spectrum,cotton,combination,policeman,agent,social,grip,suit,gradual,ideal,marine,contrast,doctor,rehabilitation,embryo,scale,discovery,trapezoid,retirement,prey,flavor,formulate,shrink,die,environment,plead,accent,sketch,rare,fish";
+console.log(people.map(function (person) {
+    return person.id
+}));
 
-console.log(words.split(",").sort().slice(0, 5));
+console.log(people.map(person => person.id));
+
+console.log(people.filter(function (person) {
+    return person.job === "Student";
+}));
+
+console.log(people.filter(function (person) {
+    return person.job === "Developer";
+}));
+
+console.log(people.reduce((acc, person) => acc + person.age, 0));
+
+console.log(people.reduce((minAge, person) => Math.min(person.age, minAge), Infinity));
+
+console.log(people.filter(person => person.job === 'Student')
+    .map(person => person.age)
+    .reduce((minAge, personAge) => Math.min(personAge, minAge), Infinity));

@@ -1,0 +1,57 @@
+IMPORTANT: none of these functions change the original array!
+
+all of these functions try to simply repetitive tasks on an array
+
+all of these functions return the transformation 
+
+all of these functions take an argument that is a function to apply to each element as the function iterates over the array, element by element
+
+
+MAP 
+	transform array of data into another array
+
+compare to forEach
+	var personIds = [];
+	people.forEach(function (person) {
+	  personIds.push(person.id);
+	});
+
+to:
+	var personIds = people.map(function (person) {
+  		return person.id
+	});
+
+arrow functions make it simpler:
+	const personIds = people.map(person => person.id);
+
+
+given an array of people objects, get an array of each person object's first name or age, or id
+
+
+FILTER
+	return a subset of array based on given filtering function
+
+var students = people.filter(function (person) {
+  return person.job === "Student";
+});
+
+var devs = people.filter(function (person) {
+  return person.job === "Developer";
+});
+
+
+REDUCE
+	returns an aggregation of the array (e.g., sums, counts, averages, grouping)
+
+const sumAges = people.reduce((acc, person) => acc + person.age, 0);
+
+const minAge = people.reduce((minAge, person) => Math.min(person.age, minAge), Infinity);
+
+
+call chaining, for even more fun!
+
+people.filter(person => person.job === 'Developer')
+	.map(person => person.age)
+	.reduce((minAge, personAge) => Math.min(personAge, minAge), Infinity);
+
+
