@@ -1,0 +1,10 @@
+Study guide for DOM assessment
+1. using jQuery for the following:
+	a. selecting one or more elements by id, class, or element, including child elements
+	b. handling various events for DOM elements, like clicking a button, hovering over a paragraph, etc.
+	b. reading and changing css attribute values
+	c. reading and changing html content, including overwriting and appending
+	d. accessing values for data attributes
+	f. accessing values for input elements
+	g. traversing to DOM elements, like siblings, children, and parents
+2. calling BOM methods

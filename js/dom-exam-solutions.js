@@ -1,7 +1,8 @@
 (function() {
     /*
 practice question 1
-when button with id change-p1 is clicked, change the text in the p element with id p1 to "I am changed"
+when button with id change-p1 is clicked,
+change the text in the p element with id p1 to "I am changed"
  */
     $("#change-p1").click(function() {
         $("#p1").html("<b>I am changed</b>");
@@ -50,10 +51,32 @@ when button with id change-p1 is clicked, change the text in the p element with 
         4. toggle the uncle's font-weight
      */
     $("#q6-li").click(function() {
-        var q6Parent = $(this).parent();
-        var q6Uncle = q6Parent.next();
-        // q6Uncle.addClass("bold-class");
-        q6Uncle.toggleClass("bold-class");
+        // var q6Parent = $(this).parent();
+        // var q6Uncle = q6Parent.next();
+        // // q6Uncle.addClass("bold-class");
+        // q6Uncle.toggleClass("bold-class");
+
+        // toggle bold on Item 3a
+        $("#list3").children().last().prev().prev().toggleClass("bold-class");
     });
+
+    $("#bom-button").click(function () {
+        // window.location = 'https://www.google.com';
+        location.reload();
+    });
+
+    // var count = 0;
+    // var max = 10;
+    // var interval = 1000; // interval time in milliseconds
+    //
+    // var intervalId = setInterval(function () {
+    //     if (count >= max) {
+    //         // clearInterval(intervalId);
+    //         console.log('All done');
+    //     } else {
+    //         count++;
+    //         console.log('Repeating this line ' + count);
+    //     }
+    // }, interval);
 })();
 
