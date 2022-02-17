@@ -41,18 +41,30 @@
 
 
     function makeNewPromise(promiseMsg) {
-        let myPromise = new Promise( function(resolve, reject) {
-          resolve("hey the promise created successfully: " + promiseMsg);
-          // reject();
-        });
-        return myPromise;
-      }
-      makeNewPromise("oh my new promise")
-              .then(function(msg) {
-                console.log(msg);
-              }).catch(function(error) {
-        console.log(error);
+      let myPromise = new Promise(function (resolve, reject) {
+        // resolve("hey the promise created successfully: " + promiseMsg);
+        reject("no promise for you!");
       });
+      return myPromise;
+    }
+
+    // makeNewPromise("oh my new promise")
+    //         .then(function(msg) {
+    //           console.log(msg);
+    //         }).catch(function(error) {
+    //   console.log(error);
+    // });
+    // console.log(await makeNewPromise("making a promise"));
+
+    async function doNewPromise(promiseMsg) {
+      return makeNewPromise("oh my new promise")
+              .then(function (msg) {
+                return msg;
+              }).catch(function (error) {
+                return error;
+              });
+    }
+    console.log(await doNewPromise("making a promise"))
 
     console.log("end of script");
 

@@ -61,7 +61,8 @@ custom promises
     use the built-in functions resolve and reject to send argument
     to either then() or catch()
 
-
+    can use await BUT really need to catch and handle promise errors nicely
+        so wrap it in another function
 
 pick a public API from https://github.com/public-apis/public-apis
 
