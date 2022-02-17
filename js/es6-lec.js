@@ -143,42 +143,78 @@
 // }
 // console.log(person);
 
-const person = {
-    fullName: 'codeup',
-    age: 4,
-    gender: 'Male',
-    job: {
-        jobName: "Developer",
-        yearsOnJob: 15
+// const person = {
+//     fullName: 'codeup',
+//     age: 4,
+//     gender: 'Male',
+//     job: {
+//         jobName: "Developer",
+//         yearsOnJob: 15
+//     }
+// };
+//
+// // const fullName = person.fullName;
+// // const age = person.age;
+// // const gender = person.gender;
+//
+// const {fullName, gender} = person;
+// console.log(fullName);
+// // console.log(age);
+// console.log(gender);
+//
+// let myFruit = [
+//     "apple",
+//     "pear",
+//     "banana",
+//     "plum"
+// ];
+//
+// const [fruitxxx, fruit3] = myFruit;
+// console.log(fruitxxx);
+// // console.log(fruit1);
+// // console.log(fruit2);
+// console.log(fruit3);
+//
+//
+// const printPerson = ({fullName, job}) => {
+//     console.log(fullName);
+//     console.log(job.jobName);
+// }
+//
+// printPerson(person);
+
+let myFruits = [
+    {
+        name: "apple",
+        qty: 4
+    },
+    {
+        name: "pear",
+        qty: 2
+    },
+    {
+        name: "banana",
+        qty: 5
+    },
+    {
+        name: "grape",
+        qty: 3
     }
-};
+]
+let name = "pineapple";
+let qty = 12;
 
-// const fullName = person.fullName;
-// const age = person.age;
-// const gender = person.gender;
+// let newFruit = {
+//     name: name,
+//     qty: qty
+// }
+// console.log(newFruit);
+//
+// myFruits.push(newFruit);
 
-const {fullName, gender} = person;
-console.log(fullName);
-// console.log(age);
-console.log(gender);
-
-let myFruit = [
-    "apple",
-    "pear",
-    "banana",
-    "plum"
-];
-
-const [fruitxxx, fruit3] = myFruit;
-console.log(fruitxxx);
-// console.log(fruit1);
-// console.log(fruit2);
-console.log(fruit3);
-
-
-const printPerson = ({fullName, job}) => {
-    console.log(fullName);
-    console.log(job.jobName);
-}
-
-printPerson(person);
+// myFruits.push({
+//     name,
+//     qty
+// });
+//
+// console.log(myFruits);

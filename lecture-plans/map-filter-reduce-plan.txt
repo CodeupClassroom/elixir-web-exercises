@@ -6,6 +6,34 @@ all of these functions return the transformation
 
 all of these functions take an argument that is a function to apply to each element as the function iterates over the array, element by element
 
+some data
+const codeup = [
+	{
+		name: "Bob",
+		age: 45,
+		job: "Student"
+	},
+	{
+		name: "Tom",
+		age: 32,
+		job: "Teacher"
+	},
+	{
+		name: "Sue",
+		age: 22,
+		job: "Student"
+	},
+	{
+		name: "Wilma",
+		age: 37,
+		job: "Teacher"
+	},
+	{
+		name: "Zantor",
+		age: 18,
+		job: "Student"
+	}
+]
 
 MAP 
 	transform array of data into another array
@@ -36,7 +64,7 @@ var students = people.filter(function (person) {
 });
 
 var devs = people.filter(function (person) {
-  return person.job === "Developer";
+  return person.job === "Teacher";
 });
 
 
@@ -50,7 +78,7 @@ const minAge = people.reduce((minAge, person) => Math.min(person.age, minAge), I
 
 call chaining, for even more fun!
 
-people.filter(person => person.job === 'Developer')
+people.filter(person => person.job === 'Teacher')
 	.map(person => person.age)
 	.reduce((minAge, personAge) => Math.min(personAge, minAge), Infinity);
 
