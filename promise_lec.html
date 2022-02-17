@@ -5,69 +5,76 @@
   <title>Promise Demo</title>
 </head>
 <body>
+
+<p id="progress-p">Loading... please wait.</p>
+
+<script src="js/jquery-2.2.4.js"></script>
 </body>
 <script>
   (async function () {
     "use strict";
 
-    // fetch('/data/inventory.json')
-    //         .then((response) => {
-    //           return response.json();
-    //
-    //         }).then((jsonData) => {
+    // let myPromise = fetch('data/inventory.json');
+    // check promise state in a while loop <--- BAD solution
+
+    // fetch('data/inventory.json').then((result) => {
+    //   // console.log(result);
+    //   console.log("in FIRST then()");
+    //   // throw 'myException 1';
+    //   return result.json();
+    // }).then((jsonData) => {
+    //   console.log("in SECOND then()");
+    //   // throw 'myException 2';
     //   console.log(jsonData);
+    //   // if this returned a promise
     // }).catch((error) => {
-    //   console.log("ERROR: " + error);
+    //   console.log('ERROR: ' + error);
     // });
 
-    // function foo() {
-    //   return fetch('/data/inventory.json')
-    //           .then((response) => {
-    //             return response.json();
-    //           });
-    // }
-    // foo().then((jsonData) => {
-    //   console.log(jsonData);
-    // })
-
-    // function foo() {
-    //   return fetch('/data/inventory.json')
-    //           .then((response) => {
-    //             return response.json();
-    //           });
-    // }
+    // let myInventory = await fetchInventory();
+    // console.log(myInventory);
     //
-    // console.log(await foo());
+    // function fetchInventory() {
+    //   return fetch('data/inventory.json').then((result) => {
+    //     // console.log(result);
+    //     // console.log("in FIRST then()");
+    //     // throw 'myException 1';
+    //     return result.json();
+    //   }).then((jsonData) => {
+    //     // console.log("in SECOND then()");
+    //     // throw 'myException 2';
+    //     // console.log(jsonData);
+    //     return jsonData; // promises successful. return the data
+    //   }).catch((error) => {
+    //     console.log('ERROR: ' + error);
+    //     return error;
+    //   });
+    // }
 
+    $("#progress-p").html("Loading... please wait.");
+    const myPromise = new Promise((resolve, reject) => {
+      // go talk a database somewhere
+      // or call an api
+      setTimeout(() => {
+        if (Math.random() > 0.5) {
+          resolve('success');
+        } else {
+          reject('failure');
+        }
+      }, 1500);
+    });
 
-    function makeNewPromise(promiseMsg) {
-      let myPromise = new Promise(function (resolve, reject) {
-        // resolve("hey the promise created successfully: " + promiseMsg);
-        reject("no promise for you!");
-      });
-      return myPromise;
-    }
-
-    // makeNewPromise("oh my new promise")
-    //         .then(function(msg) {
-    //           console.log(msg);
-    //         }).catch(function(error) {
-    //   console.log(error);
-    // });
-    // console.log(await makeNewPromise("making a promise"));
-
-    async function doNewPromise(promiseMsg) {
-      return makeNewPromise("oh my new promise")
-              .then(function (msg) {
-                return msg;
-              }).catch(function (error) {
-                return error;
-              });
-    }
-    console.log(await doNewPromise("making a promise"))
+    console.log(myPromise);
+    myPromise.then((result) => {
+      // console.log("SUCCESS: " + result);
+      // console.log(myPromise);
+      $("#progress-p").html("Done: " + result);
+    });
+    myPromise.catch((error) => {
+      console.log("ERROR: " + error);
+    });
 
     console.log("end of script");
-
   })();
 
 </script>

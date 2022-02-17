@@ -69,16 +69,23 @@ console.log(people.filter(function(person) {
     return peopleCount + 1;
 }, 0));
 
+people.forEach(function(person) {
+
+});
+
 console.log(people.reduce(function(minAge, person) {
-    // console.log(`minAge is ${minAge} and current person's age is ${person.age}`);
-    // if(person.age < minAge) {
-    //     return person.age;
-    // } else {
-    //     // if we get here then person's age is >= minAge so return minAge
-    //     return minAge;
-    // }
-    return Math.min(minAge, person.age);
+    console.log(`minAge is ${minAge} and current person's age is ${person.age}`);
+    if(person.age < minAge) {
+        return person.age;
+    } else {
+        // if we get here then person's age is >= minAge so return minAge
+        return minAge;
+    }
+    // return Math.min(minAge, person.age);
 }, Infinity));
+// longestEmail = '';
+// ... does its looping thing
+
 
 console.log(people.filter(person => person.job === 'Teacher')
     .map(person => person.age)
