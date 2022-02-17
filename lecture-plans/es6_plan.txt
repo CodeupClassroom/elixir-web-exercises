@@ -106,24 +106,6 @@ shorter syntax for declaring functions as arguments
 
 Lexical scoping: Variables declared outside of a function are global variables and are visible everywhere in a JavaScript program. Variables declared inside a function have function scope and are visible only to code that appears inside that function.
 
-
-$("#myButton").click( function(event) {
-	event.preventDefault();
-
-	if(validateData) {
-		processData();
-	}
-});
-
-
-$("#myButton").click( (event) => {
-	event.preventDefault();
-
-	if(validateData) {
-		processData();
-	}
-});
-
 not much different in the surface BUT
 	can ignore lots of things if function is small enough
 
@@ -141,6 +123,25 @@ const sayHello = name => 'Hello, ' + name + '!';
 	has IMPLICIT return if body is 1 expression
 
 	WEIRD TO READ THO
+
+NOW show arrow function as anonymous function to event listener
+
+$("#myButton").click( function(event) {
+	event.preventDefault();
+
+	if(validateData) {
+		processData();
+	}
+});
+
+
+$("#myButton").click( (event) => {
+	event.preventDefault();
+
+	if(validateData) {
+		processData();
+	}
+});
 
 
 -----------------------------

@@ -1,0 +1,70 @@
+promises: a way to handle asynchronous work in languages like JS
+
+different than jquery.ajax()
+    1. generic: can be used to handle any kind of asynchronous work, not just HTTP requests
+    2. can be used as a RETURN value from a function
+        BUT don't try to use it directly :|
+    3. can easily be chained together for multiple SYNCHRONIZED ASYNCHRONOUS CALLS
+        ajax() seems like it can be chained together but I don't see many examples of it
+    4. a little harder to understand and use than ajax()
+
+like ajax()
+    1. has methods for done, error, and always
+
+fetch a file (data/inventory.json)
+    without using done()
+
+    now use done()
+        and log the response
+
+        where is the data???
+
+if we are going to use fetch() we will probably want to use ANOTHER asynchronous call to PREPARE the response data
+    like response.json()
+        try to NOT return response.json() first
+
+    add another then() to handle the response from the call to json()
+
+    log the jsonData
+
+now let's handle an error
+    can have one handler for both asynchronous calls
+
+    file not found error
+
+    json error
+
+
+HOW TO WRAP AN ASYNCH CALL IN A FUNCTION
+
+first, return the promise directly
+    so in first then(), return response.json()
+        WE MUST ALSO RETURN THE CALL TO FETCH!
+
+    this returns a promise
+
+    we will have to call the .then method on what the function returns (a promise)
+
+second, we can instead wait on the function to finish
+    use await
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await
+
+The async and await keywords enable asynchronous,
+ promise-based behavior to be written in a cleaner style,
+ avoiding the need to explicitly configure promise chains.
+
+
+custom promises
+    kinda weird
+
+    use the built-in functions resolve and reject to send argument
+    to either then() or catch()
+
+
+
+pick a public API from https://github.com/public-apis/public-apis
+
+pick a no auth GET request and analyze the response
+
+

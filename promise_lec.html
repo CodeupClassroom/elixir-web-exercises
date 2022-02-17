@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Promise Demo</title>
+</head>
+<body>
+</body>
+<script>
+  (async function () {
+    "use strict";
+
+    // fetch('/data/inventory.json')
+    //         .then((response) => {
+    //           return response.json();
+    //
+    //         }).then((jsonData) => {
+    //   console.log(jsonData);
+    // }).catch((error) => {
+    //   console.log("ERROR: " + error);
+    // });
+
+    // function foo() {
+    //   return fetch('/data/inventory.json')
+    //           .then((response) => {
+    //             return response.json();
+    //           });
+    // }
+    // foo().then((jsonData) => {
+    //   console.log(jsonData);
+    // })
+
+    // function foo() {
+    //   return fetch('/data/inventory.json')
+    //           .then((response) => {
+    //             return response.json();
+    //           });
+    // }
+    //
+    // console.log(await foo());
+
+
+    function makeNewPromise(promiseMsg) {
+        let myPromise = new Promise( function(resolve, reject) {
+          resolve("hey the promise created successfully: " + promiseMsg);
+          // reject();
+        });
+        return myPromise;
+      }
+      makeNewPromise("oh my new promise")
+              .then(function(msg) {
+                console.log(msg);
+              }).catch(function(error) {
+        console.log(error);
+      });
+
+    console.log("end of script");
+
+  })();
+
+</script>
+</html>

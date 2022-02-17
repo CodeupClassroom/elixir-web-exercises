@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Promise Demo</title>
+</head>
+<body>
+</body>
+<script>
+  // do js stuff here, or link in a js file
+  "use strict";
+
+  // 0. pick a public free api to work with! understand what the response looks like
+
+  // 1. call fetch. where's the response???
+  // fetch("https://api.github.com/users");
+
+  // 2. work with response from fetch call
+  // 2a. FIRST without a call to json()
+
+  // fetch("https://api.github.com/users") // step 1: make fetch call to github
+  //     .then(function (response) {
+  //       console.log(response);
+  //     });
+
+  // 2b. NOW with a call to json() which requires chaining .then()
+  // fetch("https://api.github.com/users") // step 1: make fetch call to github
+  //     .then(function (response) {
+  //         // console.log(response);
+  //         // console.log(response.json());
+  //         let aPromise = response.json(); // step 2: grab json data from response
+  //         console.log(aPromise);
+  //         return aPromise;
+  //     }).then(function (jsonData) {
+  //         console.log(jsonData); // step 3: do something with that json data
+  //     });
+
+  // 3. how to handle an error
+  // fetch("https://api.github.com/users") // step 1: make fetch call to github
+  //     .then(function (response) {
+  //         // console.log(response);
+  //         // console.log(response.json());
+  //         response = "";
+  //         let aPromise = response.json(); // step 2: grab json data from response
+  //         // aPromise = Promise.reject("my computer exploded!");
+  //         console.log(aPromise);
+  //         return aPromise;
+  //     }).then(function (jsonData) {
+  //         console.log(jsonData); // step 3: do something with that json data
+  //         // all done with the then. chain madness
+  //     }).catch(function (error) {
+  //         console.log("ERROR!", error);
+  //         console.log("since this sequence of code failed, we can do other things to respond to this error");
+  //     });
+
+  // 4. move fetch json result into a function resulting in cleaner initial call
+  // my function will return a promise
+  // function getUsersFromGithubAsJSON() {
+  //   // 1. make the fetch call to github
+  //   // 2. return the json() promise
+  //   return fetch("https://api.github.com/users")
+  //           .then(function(response) {
+  //             return response.json();
+  //           });
+  // }
+  //
+  // getUsersFromGithubAsJSON()
+  //         .then(function (userData) {
+  //           for (const user of userData) {
+  //             console.log(user);
+  //           }
+  //         });
+
+  // 5. make a function that returns a new promise
+  // function makeNewPromise(promiseMsg) {
+  //   let myPromise = new Promise( function(resolve, reject) {
+  //     resolve("hey the promise created successfully: " + promiseMsg);
+  //     // reject();
+  //   });
+  //   return myPromise;
+  // }
+  // makeNewPromise("oh my new promise")
+  //         .then(function(msg) {
+  //           console.log(msg);
+  //         }).catch(function(error) {
+  //   console.log(error);
+  // });
+  //
+  //   console.log("end of script");
+
+</script>
+</html>
