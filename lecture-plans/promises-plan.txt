@@ -30,9 +30,7 @@ if we are going to use fetch() we will probably want to use ANOTHER asynchronous
 now let's handle an error
     can have one handler for both asynchronous calls
 
-    file not found error
-
-    json error
+    use throw 'exception'; to force exceptions to happen
 
 
 HOW TO WRAP AN ASYNCH CALL IN A FUNCTION
