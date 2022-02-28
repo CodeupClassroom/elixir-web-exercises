@@ -1,0 +1,43 @@
+statements end in semi-colon
+
+data types
+    8 primitive data types compared to javascript
+
+    what is a primitive?
+        no methods
+        notice: string is NOT a primitive
+
+        what is a byte?
+
+        discuss the types
+            byte
+            short
+            int
+            long
+            float
+            double
+            char
+            boolean
+
+    static vs dynamic typing
+
+String
+    single quotes are char
+    double quotes are strings
+
+    escape chars \"  \\  \n  \t
+
+make some variables
+    camelCase identifiers
+
+CONSTANTS
+    final
+
+casting
+    store an int val in a double var
+    and vice versa
+
+    print stuff out
+
+
+

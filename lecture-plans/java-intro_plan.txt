@@ -1,0 +1,43 @@
+java
+platform-independent programs
+
+what is that?
+
+Object-oriented
+
+what is that?
+
+
+build program with a JDK
+
+run the program with a JRE
+
+java programs run inside a JVM
+
+which version of Java do we use? JDK 11
+
+point out programmer flow chart
+
+
+Walk through Hello World 1 step at a time
+
+Make a Java project (I call mine elixir-java-exercises)
+
+Show how to select JDK version
+
+explain the project dir structure
+
+make a package
+    explain packages
+    why never use default or no package
+
+Make the Main class
+    explain what a class is
+    point out name of .java file
+
+Make the main() function
+    explain what main() is
+    point out parts of main
+
+compile and run the program from the command line
+    cd into the src folder
